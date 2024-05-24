@@ -1,0 +1,174 @@
+body,
+a,
+ul{
+    font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
+    background-color: rgb(40, 40, 40);
+    color: rgb(148, 148, 148);
+    list-style-type: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+main{
+    width: 100%;
+    .menu{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 100%;
+        &__autho{
+            line-height: 30px;
+            padding-left: 5px;
+        }
+        &__autho a:hover{
+            color: rgb(201, 201, 201);
+            transition: all 0.2s ease;
+        }
+        &__media{
+            display: flex;
+        }
+        ul{
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            li{
+                align-self: center;
+                display: flex;
+                list-style-type: none;
+            }
+        }
+        svg{
+            width: 25px;
+            margin: 2px;
+            transition: all 0.2s ease;
+            align-self: center;
+        }
+        svg:hover{
+            color: rgb(201, 201, 201);
+        }
+    }
+    .task{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        &__title{
+            justify-content: center;
+            color: rgb(148, 148, 148);
+            font-size: 30px;
+            text-align: center;
+            padding: 15px 0px 15px 0px;
+        }
+    }
+}
+.dev{
+    width: 100%;
+    &__content{
+        font-family: menlo, monospace;
+        width: 100%;
+        max-width: 90%;
+        display: flex;
+        border: 10px solid rgb(29, 29, 29);
+        border-radius: 0.7%;
+        margin: 0px auto;
+    }
+    &__css{
+        width: 100%;
+    }
+    &-css__text{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        
+    }
+    &-css__file{
+        color: rgb(84, 84, 84);
+    }
+    &-css__editor{
+        display: flex;
+        width: 100%;
+        &-list{
+            background-color: rgb(208, 208, 208);
+            ol{
+                list-style-type: none;
+                counter-reset: my-counter;
+                text-align: right;
+                margin: 0;
+                padding: 10px 15px;
+
+            }
+            li::before{
+                content: counter(my-counter);
+                counter-increment: my-counter;
+                line-height: 22px;
+            }
+        }
+        &-text{
+            line-height: 22px;
+            background-color: rgb(234, 234, 234);
+            width: 100%;
+            padding: 10px 15px;
+            input{
+                background-color: transparent;
+                width: 100%;
+                border: none;
+                font-family: menlo, monospace;
+                font-size: 16px;
+            }
+            input:focus{
+                background-color: transparent;
+                width: 100%;
+                outline: none;
+            }
+        }
+    }
+    &__html{
+        width: 100%;
+    }
+    &-html__text{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+    }
+    &-html__file{
+        color: rgb(84, 84, 84);
+    }
+    &-html__editor{
+        display: flex;
+        width: 100%;
+        &-list{
+            background-color: rgb(62, 62, 62);
+            ol{
+                list-style-type: none;
+                counter-reset: my-counter;
+                text-align: right;
+                margin: 0;
+                padding: 10px 15px;
+            }
+            li::before{
+                content: counter(my-counter);
+                counter-increment: my-counter;
+                line-height: 22px;
+            }
+        }
+        &-text{
+            line-height: 22px;
+            background-color: rgb(48, 48, 48);
+            width: 100%;
+            padding: 10px 15px;
+        }
+    }
+}
+aside{
+    max-width: 22%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(25, 25, 25);
+}
