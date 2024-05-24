@@ -16,6 +16,7 @@ ul{
 }
 main{
     width: 100%;
+    max-width: 78%;
     .menu{
         display: flex;
         width: 100%;
@@ -165,10 +166,13 @@ main{
             padding: 10px 15px;
         }
     }
+    height: 150vh;
 }
 aside{
     max-width: 22%;
     width: 100%;
     height: 100vh;
     background-color: rgb(25, 25, 25);
+    position: fixed;
+    right: 0px;
 }
