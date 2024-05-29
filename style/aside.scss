@@ -7,12 +7,11 @@
     right: 0px;
     &__menu{
         display: flex;
-        gap: 38px;
+        justify-content: space-between;
         width: 100%;
     }
     &__content{
         margin: 25px 0px 25px 20px;
-        display: flex;
         width: 100%;
         max-width: 90%;
     }
@@ -21,7 +20,7 @@
         gap: 10px;
         &-text{
             font-size: 30px;
-            line-height: 22px;
+            line-height: 28px;
         }
         &-icon{
             display: flex;
@@ -30,8 +29,8 @@
     }
     &__manage{
         display: flex;
-        align-items: end;
-        gap: 15px;
+        align-items: center;
+        gap: 10px;
         &-arrows{
             &-1,
             &-2{
@@ -41,8 +40,8 @@
             &-1 div{
                 width: 16px;
                 height: 16px;
-                border-top: 2px solid rgb(148, 148, 148);
-                border-right: 2px solid rgb(148, 148, 148);
+                border-top: 2px solid rgb(103, 103, 103);
+                border-right: 2px solid rgb(103, 103, 103);
                 transform: rotate(-135deg);
                 top: 5px;
                 left: 0;
@@ -51,18 +50,84 @@
             &-2 div{
                 width: 16px;
                 height: 16px;
-                border-top: 2px solid rgb(148, 148, 148);
-                border-right: 2px solid rgb(148, 148, 148);
+                border-top: 2px solid rgb(103, 103, 103);
+                border-right: 2px solid rgb(103, 103, 103);
                 transform: rotate(45deg);
                 top: 5px;
                 left: 10px;
                 background-color: transparent;
             }
         }
-        &-burger{
+        &-burger a{
+            display: inline-block;
+            width: 26px;
+            height: 30px;
+            background-color: transparent;
             position: relative;
         }
-    }
+        &-burger div{
+            border-top: 2px solid rgb(103, 103, 103);
+            margin-top: 50%;
+        }
+        &-burger div::before{
+            position: absolute;
+            content : "";
+            width: 26px;
+            height: 2px;
+            background-color: rgb(103, 103, 103);
+            top: 24px;
 
-    
+        }
+        &-burger div::after{
+            position: absolute;
+            content : "";
+            width: 26px;
+            height: 2px;
+            background-color: rgb(103, 103, 103);
+            bottom: 24px;
+        }
+    }
+    &__info{
+        &-title{
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        &-subtitle{
+            color: rgb(103, 103, 103);
+            margin-top: 5px;
+        }
+        &-selector{
+            font-size: 28px;
+            background-color: rgb(36, 36, 36);
+            width: fit-content;
+            padding: 5px;
+            border-bottom: 2px solid rgb(65, 65, 65);
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        &-text,
+        .lvl__info-example__item{
+            line-height: 23px;
+        }
+        &-text span,
+        .lvl__info-example__item span{
+            background-color: rgb(65, 65, 65);
+            padding: 3px;
+            margin: 1px;
+            font-size: 13px;
+        }
+        &-example{
+            margin-top: 50px;
+            &__title{
+                font-size: 22px;
+            }
+            &__rows{
+                margin-top: 20px;
+            }
+            &__rows hr{
+                margin-bottom: 10px;
+            }
+        }
+    }
 }
