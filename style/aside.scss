@@ -1,4 +1,4 @@
-.lvl{
+.level{
     max-width: 22%;
     width: 100%;
     height: 100vh;
@@ -58,18 +58,18 @@
                 background-color: transparent;
             }
         }
-        &-burger a{
+        &-burger__menu {
             display: inline-block;
             width: 26px;
             height: 30px;
             background-color: transparent;
             position: relative;
         }
-        &-burger div{
+        &-burger__menu div{
             border-top: 2px solid rgb(103, 103, 103);
             margin-top: 50%;
         }
-        &-burger div::before{
+        &-burger__menu div::before{
             position: absolute;
             content : "";
             width: 26px;
@@ -78,7 +78,7 @@
             top: 24px;
 
         }
-        &-burger div::after{
+        &-burger__menu div::after{
             position: absolute;
             content : "";
             width: 26px;
@@ -107,11 +107,11 @@
             margin-bottom: 15px;
         }
         &-text,
-        .lvl__info-example__item{
+        .level__info-example__item{
             line-height: 23px;
         }
         &-text span,
-        .lvl__info-example__item span{
+        .level__info-example__item span{
             background-color: rgb(65, 65, 65);
             padding: 3px;
             margin: 1px;
