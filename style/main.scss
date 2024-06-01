@@ -45,14 +45,11 @@ main{
                 list-style-type: none;
             }
         }
-        svg{
+        img{
             width: 25px;
             margin: 2px;
             transition: all 0.2s ease;
             align-self: center;
-        }
-        svg:hover{
-            color: rgb(201, 201, 201);
         }
     }
     .task{
@@ -83,22 +80,23 @@ main{
     &__css{
         width: 100%;
     }
-    &-css__text{
+    &__css-text{
         display: flex;
         justify-content: space-between;
         padding: 15px;
         
     }
-    &-css__file{
+    &__css-file{
         color: rgb(84, 84, 84);
     }
-    &-css__editor{
+    &__css-editor{
         display: flex;
         width: 100%;
-        &-list{
+        &__list{
             background-color: rgb(208, 208, 208);
             ol{
                 list-style-type: none;
+                list-style: none;
                 counter-reset: my-counter;
                 text-align: right;
                 margin: 0;
@@ -111,7 +109,7 @@ main{
                 line-height: 22px;
             }
         }
-        &-text{
+        &__text{
             line-height: 22px;
             background-color: rgb(234, 234, 234);
             width: 100%;
@@ -122,29 +120,33 @@ main{
                 border: none;
                 font-family: menlo, monospace;
                 font-size: 16px;
+                transition: all 0.5s ease;
+                animation: pulse 1s linear infinite;
             }
             input:focus{
                 background-color: transparent;
                 width: 100%;
+                transition: all 0.5s ease;
                 outline: none;
+                animation: pulse-off;
             }
         }
     }
     &__html{
         width: 100%;
     }
-    &-html__text{
+    &__html-text{
         display: flex;
         justify-content: space-between;
         padding: 15px;
     }
-    &-html__file{
+    &__html-file{
         color: rgb(84, 84, 84);
     }
-    &-html__editor{
+    &__html-editor{
         display: flex;
         width: 100%;
-        &-list{
+        &__list{
             background-color: rgb(62, 62, 62);
             ol{
                 list-style-type: none;
@@ -159,20 +161,20 @@ main{
                 line-height: 22px;
             }
         }
-        &-text{
+        &__text{
             line-height: 22px;
             background-color: rgb(48, 48, 48);
             width: 100%;
             padding: 10px 15px;
         }
+        &__text div:hover{
+            color: rgb(217, 217, 217);
+            cursor: pointer;
+        }
     }
-    height: 150vh;
 }
-aside{
-    max-width: 22%;
-    width: 100%;
-    height: 100vh;
-    background-color: rgb(25, 25, 25);
-    position: fixed;
-    right: 0px;
+@keyframes pulse {
+    from {
+        background-color: aqua;
+    }
 }
