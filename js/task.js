@@ -23,18 +23,22 @@ let levelsObject = {
         },
         {
             level : 2,
-            tags : ['circle' , 'circle' , 'circle'],
+            tags : [table, 
+                ['circle', 'circle', 'circle'],
+                ['square', 'square', 'square'],
+            ],
             select: 'bananas',
         },
         {
             level : 3,
-            tags : ['aqua-circle'],
+            tags : [table, 
+                ['circle', 'circle', 'circle'],
+            ],
             select: 'orange',
         }
     ],
 }
 
-// table.innerHTML = levelsObject.levels[levelCounter - 1].tags;
 levelTitle.innerHTML = `Level ${levelCounter} of 32`;
 taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`
 arrowL.addEventListener( "click" , () => {
@@ -48,12 +52,8 @@ arrowR.addEventListener( "click" , () => {
     levelUpdate();
 });
 
-const toBox = (smth) => {
-    return smth
-} 
 let prevNode = table;
 const levelUpdate = () => {
-    // table.innerHTML = levelsObject.levels[levelCounter - 1].tags;
     table.innerHTML = '';
 
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
@@ -70,13 +70,5 @@ const levelUpdate = () => {
         } 
         prevNode = table;
     }
-    // for(let i = 0; i < levelsObject.levels[levelCounter - 1].tags.length; i++){
-    //     if(levelsObject.levels[levelCounter - 1].in[i] === undefined) continue;
-
-    //     const nodeIn = document.createElement('div');
-        
-    //     nodeIn.classList.add(levelsObject.levels[levelCounter - 1].in[i]);
-    //     .append(nodeIn);
-    // }
 };    
 levelUpdate();
