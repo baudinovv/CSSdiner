@@ -5,29 +5,30 @@ let levelTitle = document.querySelector('#level-title');
 let taskTitle = document.querySelector('#task-title');
 let levelCounter = 1;
 
-let square =  document.createElement('div');
-let circle =  document.createElement('div');
-let aquaCircle =  document.createElement('div');
-square.className = 'square';
-circle.className = 'circle';
-aquaCircle.className = 'aqua-circle';
+const circle = document.createElement('div');
+const square = document.createElement('div');
 
+circle.classList.add('circle');
+square.classList.add('square');
 let levelsObject = {
     levels : [
         {
             level : 1,
-            tags : [`circle`, circle, circle],
+            tags : [table, 
+                ['circle', 'circle', 'circle'],
+                ['square', 'square', 'square'],
+                ['aqua-circle', 'aqua-circle', 'aqua-circle']
+            ],
             select: 'apples',
-            in: ['', '']
         },
         {
             level : 2,
-            tags : [circle , circle , circle],
+            tags : ['circle' , 'circle' , 'circle'],
             select: 'bananas',
         },
         {
             level : 3,
-            tags : [aquaCircle],
+            tags : ['aqua-circle'],
             select: 'orange',
         }
     ],
@@ -36,10 +37,6 @@ let levelsObject = {
 // table.innerHTML = levelsObject.levels[levelCounter - 1].tags;
 levelTitle.innerHTML = `Level ${levelCounter} of 32`;
 taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`
-for(let el of levelsObject.levels[0].tags){
-    table.append(el);
-}
-
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
     if (levelCounter < 1) levelCounter = 1;
@@ -51,14 +48,35 @@ arrowR.addEventListener( "click" , () => {
     levelUpdate();
 });
 
+const toBox = (smth) => {
+    return smth
+} 
+let prevNode = table;
 const levelUpdate = () => {
     // table.innerHTML = levelsObject.levels[levelCounter - 1].tags;
     table.innerHTML = '';
 
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
     taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`;
-    for(let el of levelsObject.levels[levelCounter - 1].tags){
-        table.append(el);
+    for(let i = 0; i < levelsObject.levels[levelCounter - 1].tags[1].length; i++){
+        for(let j = 1; j < levelsObject.levels[levelCounter - 1].tags.length; j++){
+            if(!levelsObject.levels[levelCounter - 1].tags[j][i]) continue;
+            const nodeIn = document.createElement('div');
+            let surface = prevNode;
+            nodeIn.classList.add(levelsObject.levels[levelCounter - 1].tags[j][i]);
+            prevNode = nodeIn;
+            surface.append(nodeIn);
+            console.log(j);
+        } 
+        prevNode = table;
     }
-    // for(let el of levelsObject.levels[levelCounter - 1].in){}
+    // for(let i = 0; i < levelsObject.levels[levelCounter - 1].tags.length; i++){
+    //     if(levelsObject.levels[levelCounter - 1].in[i] === undefined) continue;
+
+    //     const nodeIn = document.createElement('div');
+        
+    //     nodeIn.classList.add(levelsObject.levels[levelCounter - 1].in[i]);
+    //     .append(nodeIn);
+    // }
 };    
+levelUpdate();
