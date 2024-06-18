@@ -1,4 +1,4 @@
-import levelsObject from './levels.json';
+import levelsObject from '../src/JSON/levels.json';
 
 let table = document.querySelector('#table');
 let arrowL = document.querySelector('#arrow-left');
