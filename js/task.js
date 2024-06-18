@@ -5,16 +5,11 @@ let levelTitle = document.querySelector('#level-title');
 let taskTitle = document.querySelector('#task-title');
 let levelCounter = 1;
 
-const circle = document.createElement('div');
-const square = document.createElement('div');
-
-circle.classList.add('circle');
-square.classList.add('square');
 let levelsObject = {
     levels : [
         {
             level : 1,
-            tags : [table, 
+            tags : [
                 ['circle', 'circle', 'circle'],
                 ['square', 'square', 'square'],
                 ['aqua-circle', 'aqua-circle', 'aqua-circle']
@@ -23,7 +18,7 @@ let levelsObject = {
         },
         {
             level : 2,
-            tags : [table, 
+            tags : [
                 ['circle', 'circle', 'circle'],
                 ['square', 'square', 'square'],
             ],
@@ -31,7 +26,7 @@ let levelsObject = {
         },
         {
             level : 3,
-            tags : [table, 
+            tags : [
                 ['circle', 'circle', 'circle'],
             ],
             select: 'orange',
@@ -39,8 +34,6 @@ let levelsObject = {
     ],
 }
 
-levelTitle.innerHTML = `Level ${levelCounter} of 32`;
-taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
     if (levelCounter < 1) levelCounter = 1;
@@ -52,18 +45,22 @@ arrowR.addEventListener( "click" , () => {
     levelUpdate();
 });
 
-let prevNode = table;
 const levelUpdate = () => {
     table.innerHTML = '';
-
+    
+    let prevNode = table;
+    let currentLevel = levelsObject.levels[levelCounter - 1];
+    
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
-    taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`;
-    for(let i = 0; i < levelsObject.levels[levelCounter - 1].tags[1].length; i++){
-        for(let j = 1; j < levelsObject.levels[levelCounter - 1].tags.length; j++){
-            if(!levelsObject.levels[levelCounter - 1].tags[j][i]) continue;
+    taskTitle.innerHTML = `Select the ${currentLevel.select}`;
+
+    
+    for(let i = 0; i < currentLevel.tags[0].length; i++){
+        for(let j = 0; j < currentLevel.tags.length; j++){
+            if(!currentLevel.tags[j][i]) continue;
             const nodeIn = document.createElement('div');
             let surface = prevNode;
-            nodeIn.classList.add(levelsObject.levels[levelCounter - 1].tags[j][i]);
+            nodeIn.classList.add(currentLevel.tags[j][i]);
             prevNode = nodeIn;
             surface.append(nodeIn);
             console.log(j);
