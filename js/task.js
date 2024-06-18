@@ -1,38 +1,11 @@
+import levelsObject from './levels.json';
+
 let table = document.querySelector('#table');
 let arrowL = document.querySelector('#arrow-left');
 let arrowR = document.querySelector('#arrow-right');
 let levelTitle = document.querySelector('#level-title');
 let taskTitle = document.querySelector('#task-title');
 let levelCounter = 1;
-
-let levelsObject = {
-    levels : [
-        {
-            level : 1,
-            tags : [
-                ['circle', 'circle', 'circle'],
-                ['square', 'square', 'square'],
-                ['aqua-circle', 'aqua-circle', 'aqua-circle']
-            ],
-            select: 'apples',
-        },
-        {
-            level : 2,
-            tags : [
-                ['circle', 'circle', 'circle'],
-                ['square', 'square', 'square'],
-            ],
-            select: 'bananas',
-        },
-        {
-            level : 3,
-            tags : [
-                ['circle', 'circle', 'circle'],
-            ],
-            select: 'orange',
-        }
-    ],
-}
 
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
@@ -50,7 +23,7 @@ const levelUpdate = () => {
     
     let prevNode = table;
     let currentLevel = levelsObject.levels[levelCounter - 1];
-    
+
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
     taskTitle.innerHTML = `Select the ${currentLevel.select}`;
 
@@ -63,7 +36,6 @@ const levelUpdate = () => {
             nodeIn.classList.add(currentLevel.tags[j][i]);
             prevNode = nodeIn;
             surface.append(nodeIn);
-            console.log(j);
         } 
         prevNode = table;
     }
