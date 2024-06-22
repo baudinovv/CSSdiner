@@ -20,7 +20,7 @@ let levelsObject = {
                 ['aqua-circle', 'aqua-circle', 'aqua-circle']
             ],
             select: 'apples',
-        },
+        },git add
         {
             level : 2,
             tags : [table, 
@@ -38,7 +38,6 @@ let levelsObject = {
         }
     ],
 }
-
 levelTitle.innerHTML = `Level ${levelCounter} of 32`;
 taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`
 arrowL.addEventListener( "click" , () => {
@@ -50,23 +49,22 @@ arrowR.addEventListener( "click" , () => {
     levelCounter++;
     if (levelCounter > levelsObject.levels.length) levelCounter = levelsObject.levels.length;
     levelUpdate();
-});
-
-let prevNode = table;
+});    
 const levelUpdate = () => {
     table.innerHTML = '';
-
+    let currentLevel = levelsObject.levels[levelCounter - 1];
+    let prevNode = table;
+        
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
-    taskTitle.innerHTML = `Select the ${levelsObject.levels[levelCounter - 1].select}`;
-    for(let i = 0; i < levelsObject.levels[levelCounter - 1].tags[1].length; i++){
-        for(let j = 1; j < levelsObject.levels[levelCounter - 1].tags.length; j++){
-            if(!levelsObject.levels[levelCounter - 1].tags[j][i]) continue;
-            const nodeIn = document.createElement('div');
+    taskTitle.innerHTML = `Select the ${currentLevel.select}`;
+    for(let i = 0; i < currentLevel.tags[1].length; i++){
+        for(let j = 1; j < currentLevel.tags.length; j++){
+            if(!currentLevel.tags[j][i]) continue;
+            const node = document.createElement('div');
             let surface = prevNode;
-            nodeIn.classList.add(levelsObject.levels[levelCounter - 1].tags[j][i]);
-            prevNode = nodeIn;
-            surface.append(nodeIn);
-            console.log(j);
+            node.classList.add(currentLevel.tags[j][i]);
+            prevNode = node;
+            surface.append(node);
         } 
         prevNode = table;
     }
