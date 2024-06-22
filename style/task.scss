@@ -23,14 +23,29 @@
                 background-color: white;
                 border-radius: 100%;
                 position: relative;
+                display: flex;
+            }
+            .circle::before{
+                content: "";
+                position: absolute;
+                background-color: rgb(255, 255, 255);
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+                top: 20%;
+                left: 20%;
+                box-shadow: inset -1px 10px 5px 0px rgba(0, 0, 0, 0.142);
             }
             .square{
-                width: 50%;
-                height: 50%;
+                width: 35%;
+                height: 35%;
                 background-color: red;
-                position: absolute;
+                margin: 0px auto;      
+                align-self: center;          
                 right: 25%;
                 top: 25%;
+                border-radius: 100%;
+                z-index: 3;
             }
             .aqua-circle{
                 background-color: aqua;
