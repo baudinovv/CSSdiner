@@ -1,0 +1,28 @@
+{
+    "levels" : [
+        {
+            "level" : 1,
+            "tags" : [
+                ["circle", "circle", "circle"],
+                ["square", "square", "square"],
+                ["aqua-circle", "aqua-circle", "aqua-circle"]
+            ],
+            "select": "apples"
+        },
+        {
+            "level" : 2,
+            "tags" : [
+                ["circle", "circle", "circle"],
+                ["square", "square", "square"]
+            ],
+            "select": "apples"
+        },
+        {
+            "level" : 3,
+            "tags" : [
+                ["circle", "circle", "circle"]
+            ],
+            "select": "apples"
+        }
+    ]
+}
