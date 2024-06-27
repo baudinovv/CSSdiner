@@ -1,5 +1,7 @@
 body,
 a,
+input,
+button,
 ul{
     font-family: "Exo 2", "Lato", "Helvetica Neue", sans-serif;
     background-color: rgb(40, 40, 40);
@@ -114,7 +116,12 @@ main{
             background-color: rgb(234, 234, 234);
             width: 100%;
             padding: 10px 15px;
-            input{
+        }
+        &__input{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            &-1{
                 background-color: transparent;
                 width: 100%;
                 border: none;
@@ -122,13 +129,51 @@ main{
                 font-size: 16px;
                 transition: all 0.5s ease;
                 animation: pulse 1s linear infinite;
+                max-width: 87%;
+                color: black;
+                min-height: 25px;
             }
-            input:focus{
+            &-1:focus{
                 background-color: transparent;
                 width: 100%;
                 transition: all 0.5s ease;
                 outline: none;
                 animation: pulse-off;
+            }
+            &-2{
+                transition: all 0.5s ease;
+                position: absolute;
+                right: 0;
+                font-size: 11px;
+                background-color: rgb(218, 218, 218);
+                color: rgb(148, 148, 148);
+                border: 1px solid;
+                padding: 0px 8px 0px 8px;
+                border-radius: 2px;
+                transition: all 0.5s ease;
+                cursor: pointer;
+                align-self: flex-start;
+                max-height: 20px;
+                height: 100%;
+                display: flex;
+                align-items: start;
+            }
+            &-2::before{
+                content: "";
+                position: absolute;
+                width: 101%;
+                height: 5px;
+                background-color: rgb(127, 127, 127);
+                transform: translate(-50%,-50%);
+                bottom: -5px;
+                left: 50%;
+            }
+            &-2:active{
+                transition: all 0.5s ease;
+                bottom: 0;
+                &::before{
+                    height: 0px;
+                }
             }
         }
     }
@@ -167,7 +212,7 @@ main{
             width: 100%;
             padding: 10px 15px;
         }
-        &__text div:hover{
+        &__text *:hover{
             color: rgb(217, 217, 217);
             cursor: pointer;
         }

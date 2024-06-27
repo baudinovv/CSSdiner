@@ -3,24 +3,33 @@
         {
             "level" : 1,
             "tags" : [
-                ["circle", "circle", "circle"],
-                ["square", "square", "square"],
-                ["aqua-circle", "aqua-circle", "aqua-circle"]
+                ["plate", "plate"]
             ],
-            "select": "apples"
+            "select": "apples",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><plate choosen = \"a\" >&emsp;&lt;/plate&gt;</plate><br><plate choosen = \"a\" >&nbsp;&lt;/plate&gt;</plate><br>&lt;/div&gt;",
+            "answer" : 2
         },
         {
             "level" : 2,
             "tags" : [
-                ["circle", "circle", "circle"],
-                ["square", "square", "square"]
+                ["plate", "plate", "plate"],
+                ["apple", "apple", "apple"]
             ],
-            "select": "apples"
+            "select": "apples",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><div class=\"plate\">&emsp;&lt;plate&gt;</div><div class=\"plate\">&emsp;&emsp;&lt;/apple&gt;</div><div class=\"plate\">&nbsp;&lt;/plate&gt;</div><div class=\"plate\">&emsp;&lt;plate&gt;</div><div class=\"plate\">&emsp;&emsp;&lt;/apple&gt;</div><div class=\"plate\">&nbsp;&lt;/plate&gt;</div>&lt;/div&gt;",
+            "answer" : 2
         },
         {
             "level" : 3,
             "tags" : [
-                ["circle", "circle", "circle"]
+                ["plate", "plate", "plate"]
+            ],
+            "select": "apples"
+        },
+        {
+            "level" : 4,
+            "tags" : [
+                ["apple", "apple", "apple"]
             ],
             "select": "apples"
         }

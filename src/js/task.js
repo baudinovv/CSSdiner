@@ -1,10 +1,21 @@
-import levelsObject from '../src/JSON/levels.json';
+import levelsObject from '../JSON/levels.json';
+
+// variables for Levels changing info on level counter
 
 let table = document.querySelector('#table');
 let arrowL = document.querySelector('#arrow-left');
 let arrowR = document.querySelector('#arrow-right');
 let levelTitle = document.querySelector('#level-title');
 let taskTitle = document.querySelector('#task-title');
+
+// variables for checking answer
+
+let htmlEditor = document.querySelector('#html-editor');
+let input = document.querySelector('.dev__css-editor__input-1');
+let btn = document.querySelector('.dev__css-editor__input-2');
+let answer;
+//
+
 let levelCounter = 1;
 
 arrowL.addEventListener( "click" , () => {
@@ -18,6 +29,23 @@ arrowR.addEventListener( "click" , () => {
     levelUpdate();
 });
 
+
+const answerReduce = (answer) => {
+    let currentLevel = levelsObject.levels[levelCounter - 1];
+    return (answer) ? 
+        (Array.from(htmlEditor.querySelectorAll(`${answer}`)).map((value) => {return value.hasAttributes('choosen')}).filter(Boolean).length == currentLevel.answer) ?
+            true 
+            : false
+        : 0;    
+}
+
+btn.addEventListener("click", () => {
+    let answer = input.value;
+    (answerReduce(answer)) ? 
+        arrowR.click()
+        : alert(false);
+});
+
 const levelUpdate = () => {
     table.innerHTML = '';
     
@@ -26,7 +54,7 @@ const levelUpdate = () => {
 
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
     taskTitle.innerHTML = `Select the ${currentLevel.select}`;
-
+    htmlEditor.innerHTML = currentLevel.HTMLeditor;
     
     for(let i = 0; i < currentLevel.tags[0].length; i++){
         for(let j = 0; j < currentLevel.tags.length; j++){
