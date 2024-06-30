@@ -25,9 +25,6 @@ let levelCounter = 1;
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
     if (levelCounter < 1) levelCounter = 1;
-    (localStorage.getItem(`level${levelCounter}`)) ?
-        checkBox.style.filter = "brightness(0) saturate(100%) invert(72%) sepia(80%) saturate(4649%) hue-rotate(87deg) brightness(115%) contrast(111%);"
-        : checkBox.style.filter = "none";
     levelUpdate();
 });
 arrowR.addEventListener( "click" , () => {
@@ -53,6 +50,7 @@ btn.addEventListener("click", () => {
     if(answerReduce(answer)){
         localStorage.setItem(`level${levelCounter}`, 1) 
         arrowR.click();
+        input.value = '';
     } else{ // shaking animation if answer is wrong
         editors.style.animation = "shake 0.3s ease";
         setTimeout(() => {editors.style.animation = "none";}, 300)

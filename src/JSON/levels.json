@@ -16,7 +16,7 @@
                 ["apple", "apple", "apple"]
             ],
             "select": "apples",
-            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><div class=\"plate\">&emsp;&lt;plate&gt;</div><div class=\"plate\">&emsp;&emsp;&lt;/apple&gt;</div><div class=\"plate\">&nbsp;&lt;/plate&gt;</div><div class=\"plate\">&emsp;&lt;plate&gt;</div><div class=\"plate\">&emsp;&emsp;&lt;/apple&gt;</div><div class=\"plate\">&nbsp;&lt;/plate&gt;</div>&lt;/div&gt;",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><plate>&emsp;&lt;plate&gt;<br><apple choosen=\"a\">&emsp;&emsp;&lt;/apple&gt;</apple choosen=\"a\"><br>&nbsp;&lt;/plate&gt;</plate><br><plate>&emsp;&lt;plate&gt;<br><apple choosen=\"a\">&emsp;&emsp;&lt;/apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br><plate>&emsp;&lt;plate&gt;<br><apple choosen=\"a\">&emsp;&emsp;&lt;/apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate>",
             "answer" : 3
         }
     ]
