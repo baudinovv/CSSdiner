@@ -7,6 +7,7 @@
             width: fit-content;
         }
         &-tabletop{
+            transition: all 1s ease;
             min-width: 420px;
             height: 125px;
             background-color: orange;
@@ -70,8 +71,11 @@
         &-tabletop > div{
             width: 100px;
             height: 100px;
+            transition: all 1s ease;
+            animation: tabletop 0.3s ease ;
         }
         &-tablebottom{
+            transition: all 1s ease;
             min-width: 420px;
             height: 12px;
             width: 100%;
@@ -79,5 +83,20 @@
             transform: perspective(20px) rotateX(-9deg);
             margin-top: 4px;
         }
+    }
+}
+
+@keyframes tabletop {
+    0%{
+        transform: scale(0) perspective(100px) rotateX(5deg);
+    }
+    50%{
+        transform: scale(1.2) perspective(100px) rotateX(5deg);
+    }
+    70%{
+        transform: scale(1.1) perspective(100px) rotateX(5deg);
+    }
+    100%{
+        transform: scale(1) perspective(100px) rotateX(5deg);
     }
 }

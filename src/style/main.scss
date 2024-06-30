@@ -11,12 +11,30 @@ ul{
     margin: 0;
     padding: 0;
 }
+main{
+    max-height: 100vh;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden
+}
 .wrapper{
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgb(33, 33, 33);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(123, 123, 123);
+    border-radius: 10px;
+    border: 3px solid rgb(33, 33, 33);
+}
 main{
+    min-width: 550px;
     width: 100%;
     max-width: 78%;
     .menu{
@@ -28,10 +46,6 @@ main{
         &__autho{
             line-height: 30px;
             padding-left: 5px;
-        }
-        &__autho a:hover{
-            color: rgb(201, 201, 201);
-            transition: all 0.2s ease;
         }
         &__media{
             display: flex;
@@ -52,6 +66,11 @@ main{
             margin: 2px;
             transition: all 0.2s ease;
             align-self: center;
+            
+        }
+        img:hover{
+            filter: brightness(0) saturate(100%) invert(61%) sepia(6%) saturate(4%) hue-rotate(343deg) brightness(95%) contrast(87%);
+            transition: all 0.2s ease;
         }
     }
     .task{
@@ -70,6 +89,7 @@ main{
 }
 .dev{
     width: 100%;
+    position: relative;
     &__content{
         font-family: menlo, monospace;
         width: 100%;
@@ -222,4 +242,11 @@ main{
     from {
         background-color: aqua;
     }
+}
+@keyframes shake {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(15px) }
+    50% { transform: translateX(-15px) }
+    75% { transform: translateX(15px) }
+    100% { transform: translateX(0) }
 }
