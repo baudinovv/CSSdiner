@@ -3,26 +3,21 @@
         {
             "level" : 1,
             "tags" : [
-                ["circle", "circle", "circle"],
-                ["square", "square", "square"],
-                ["aqua-circle", "aqua-circle", "aqua-circle"]
+                ["plate", "plate"]
             ],
-            "select": "apples"
+            "select": "plates",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><plate choosen = \"a\" >&emsp;&lt;/plate&gt;</plate><br><plate choosen = \"a\" >&nbsp;&lt;/plate&gt;</plate><br>&lt;/div&gt;",
+            "answer" : 2
         },
         {
             "level" : 2,
             "tags" : [
-                ["circle", "circle", "circle"],
-                ["square", "square", "square"]
+                ["plate", "plate", "plate"],
+                ["apple", "apple", "apple"]
             ],
-            "select": "apples"
-        },
-        {
-            "level" : 3,
-            "tags" : [
-                ["circle", "circle", "circle"]
-            ],
-            "select": "apples"
+            "select": "apples",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><plate>&emsp;&lt;plate&gt;<br><apple choosen=\"a\">&emsp;&emsp;&lt;/apple&gt;</apple choosen=\"a\"><br>&nbsp;&lt;/plate&gt;</plate><br><plate>&emsp;&lt;plate&gt;<br><apple choosen=\"a\">&emsp;&emsp;&lt;/apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br><plate>&emsp;&lt;plate&gt;<br><apple choosen=\"a\">&emsp;&emsp;&lt;/apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate>",
+            "answer" : 3
         }
     ]
 }
