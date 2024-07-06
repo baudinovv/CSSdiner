@@ -7,7 +7,11 @@ let arrowL = document.querySelector('#arrow-left');
 let arrowR = document.querySelector('#arrow-right');
 let levelTitle = document.querySelector('#level-title');
 let taskTitle = document.querySelector('#task-title');
-
+let asideTitle = document.querySelector('#asideTitle');
+let asideSubTitle = document.querySelector('#asideSubTitle');
+let asideSelector = document.querySelector('#asideSelector');
+let asideText = document.querySelector('#asideText');
+let asideExamples = document.querySelector('#asideExamples');
 // variables for checking answer
 
 let htmlEditor = document.querySelector('#html-editor');
@@ -36,11 +40,10 @@ arrowR.addEventListener( "click" , () => {
 // checking answer
 const answerReduce = (answer) => {
     let currentLevel = levelsObject.levels[levelCounter - 1];
-    return (answer) ? 
-        (Array.from(htmlEditor.querySelectorAll(`${answer}`)).map((value) => {return value.hasAttributes('choosen')}).filter(Boolean).length == currentLevel.answer) ?
-            true 
-            : false
-        : 0;    
+    return (answer) ? (Array.from(htmlEditor.querySelectorAll(`${answer}`))
+        .map((value) => value.hasAttributes('choosen')).filter(Boolean).length == currentLevel.answer 
+        && !Array.from(htmlEditor.querySelectorAll(`${answer}`))
+        .map((value) => value.hasAttributes('choosen')).includes(false)) ? true : false : 0;   
 }
 
 
@@ -82,6 +85,13 @@ const levelUpdate = () => {
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
     taskTitle.innerHTML = `Select the ${currentLevel.select}`;
     htmlEditor.innerHTML = currentLevel.HTMLeditor;
+
+    asideTitle.innerHTML = currentLevel.asideTitle;
+    asideSubTitle.innerHTML = currentLevel.asideSubTitle;
+    asideSelector.innerHTML = currentLevel.asideSelector;
+    asideText.innerHTML = currentLevel.asideText;
+    asideExamples.innerHTML = currentLevel.asideExamples;
+    
     
     levelDone();
 
@@ -89,6 +99,10 @@ const levelUpdate = () => {
         for(let j = 0; j < currentLevel.tags.length; j++){
             if(!currentLevel.tags[j][i]) continue;
             const nodeIn = document.createElement('div');
+            if(j > 1) {
+                nodeIn.style.top = `${j - 3}0%`;
+                nodeIn.style.boxShadow = "inset 6px -2px  #cc1022";
+            } 
             let surface = prevNode;
             nodeIn.classList.add(currentLevel.tags[j][i]);
             prevNode = nodeIn;

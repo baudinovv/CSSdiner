@@ -18,15 +18,46 @@
             justify-content: center;
             transform: perspective(100px) rotateX(5deg);
             position: relative;
+            div:hover{
+                outline: 5px solid rgba(161, 161, 161, 0.608);
+            }
             .plate{
                 width: 100px;
                 height: 100px;              
                 background-color: white;
                 border-radius: 100%;
                 position: relative;
-                display: flex;
                 justify-content: center;
                 box-shadow: -1px 10px 0px -3px rgba(0, 0, 0, 0.296);
+                transform: none;
+            }
+            .plate::after,
+            .plate-fancy::after{
+                content: "<plate>";
+                position: absolute;
+                width: fit-content;
+                padding: 5px 5px;
+                height: 50px;
+                top: -60%;
+                right: -50%;
+                background-color: rgb(255, 255, 255);
+                display: none;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                transform: perspective(-100px) rotateX(50deg);
+                padding: 0px 10px;
+                color: black;
+            }
+            .plate-fancy::after{
+                content: "<plate-fancy>";
+                padding: 0px 5px;
+            }
+            > .plate:hover::after,
+            > .plate-fancy:hover::after,
+            > .bento:hover::after{
+                display: flex;
             }
             .plate::before{
                 content: "";
@@ -47,8 +78,6 @@
                 box-shadow: inset 6px -2px  #cc1022, -1px 6px 2px -1px rgba(0, 0, 0, 0.296);
                 border-radius: 30px 30px 40px 40px;
                 position: relative;
-                align-self: center;
-                justify-self: center;
             }
             .apple::before{
                 content: "";
@@ -59,20 +88,108 @@
                 height: 10px;
                 background-color: brown;
             }
-            .aqua-circle{
-                background-color: aqua;
-                width: 50%;
-                height: 50%;
+            .apple::after{
+                content: "<apple>";
                 position: absolute;
-                top: 25%;
-                right: 25%;
+                width: 60px;
+                height: 30px;
+                top: -60%;
+                left: 0;
+                background-color: rgb(255, 255, 255);
+                display: none;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                font-size: 15px;
+                // box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.75);
+                padding: 0px 5px;
             }
+            .apple:hover::after{
+                display: flex;
+            }
+            .bento{
+                border-top: 5px solid brown;
+                border-bottom: 5px solid brown;
+                background-color: rgb(198, 48, 48);
+                box-shadow: inset 0px -1px 10px 0px rgba(0,0,0,0.75);
+                border-radius: 5px;
+                position: relative;
+            }
+            .bento::after{
+                content: "<bento>";
+                position: absolute;
+                width: fit-content;
+                padding: 5px 5px;
+                height: 50px;
+                top: -60%;
+                right: -50%;
+                background-color: rgb(255, 255, 255);
+                display: none;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                transform: perspective(0px) rotateX(0deg);
+                padding: 0px 5px;
+            }
+            .plate-fancy{
+                width: 100px;
+                height: 100px;              
+                background-color: white;
+                border-radius: 100%;
+                position: relative;
+                box-shadow: -1px 10px 0px -3px rgba(0, 0, 0, 0.296);
+            }
+            .plate-fancy::before{
+                content: "";
+                position: absolute;
+                background-color: rgb(255, 255, 255);
+                width: 65px;
+                height: 65px;
+                border-radius: 100%;
+                top : 50%;
+                left : 50%;
+                transform : translate(-50%, -50%);
+                box-shadow: inset -1px 10px 5px 0px rgba(0, 0, 0, 0.142), 0px 0px 0px 5px white, 0px 0px 0px 12px rgb(80, 211, 255);
+            }
+            .orange{
+                width: 40px;
+                height: 40px;
+                background-color:  rgb(255, 204, 0);
+                box-shadow: inset 3px -2px  rgb(227, 148, 0), -1px 6px 2px -1px rgba(0, 0, 0, 0.296);
+                border-radius: 100%;
+                position: relative;
+            }
+            .orange:before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                height: 0;
+                width: 0;
+                border: 8px solid #539e3d;
+                border-radius: 50% 0 50% 0;
+                border-bottom-color: #437512;
+                border-right-color: #437512;
+              }
         }
         &-tabletop > div{
             width: 100px;
             height: 100px;
             transition: all 1s ease;
-            animation: tabletop 0.3s ease ;
+            transition: box-shadow 0s ease;
+            animation: tabletop 0.3s ease ;            
+        }
+        &-tabletop > div div{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+
+        }
+        &-tabletop > div:hover{
+            outline: 7px solid rgba(255, 255, 255, 0.608);
+            // box-shadow: 0px 0px 0px 7px rgba(255, 255, 255, 0.608);
         }
         &-tablebottom{
             transition: all 1s ease;
