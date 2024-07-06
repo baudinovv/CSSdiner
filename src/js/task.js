@@ -101,8 +101,14 @@ const levelUpdate = () => {
             const nodeIn = document.createElement('div');
             if(j > 1) {
                 nodeIn.style.top = `${j - 3}0%`;
-                nodeIn.style.boxShadow = "inset 6px -2px  #cc1022";
+                (nodeIn.className == "orange") ? nodeIn.style.boxShadow = "inset 3px -2px rgb(227, 148, 0)" : "inset 6px -2px  #cc1022";  
             } 
+            // nodeIn.addEventListener('mouseover', () => {
+            //     nodeIn.classList.add('open');
+            // });
+            // nodeIn.addEventListener('mouseout', () => {
+            //     nodeIn.classList.remove('open');
+            // });
             let surface = prevNode;
             nodeIn.classList.add(currentLevel.tags[j][i]);
             prevNode = nodeIn;

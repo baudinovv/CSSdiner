@@ -76,6 +76,11 @@
             "level" : 6,
             "tags" : [
                 ["bento", "plate", "apple"],
+                ["", "orange", ""],
+                ["", "orange", ""],
+                ["", "orange", ""],
+                ["", "orange", ""],
+                ["", "orange", ""],
                 ["", "orange", ""]
             ],
             "select": "bento boxes",

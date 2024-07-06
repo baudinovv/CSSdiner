@@ -46,17 +46,19 @@
                 justify-content: center;
                 align-items: center;
                 font-size: 20px;
-                transform: perspective(-100px) rotateX(50deg);
+                transform: perspective(0px) rotateX(0deg);
                 padding: 0px 10px;
                 color: black;
             }
             .plate-fancy::after{
                 content: "<plate-fancy>";
                 padding: 0px 5px;
+                color: black;
             }
-            > .plate:hover::after,
-            > .plate-fancy:hover::after,
-            > .bento:hover::after{
+            .plate:hover::after,
+            .plate-fancy:hover::after,
+            .bento:hover::after,
+            .orange:hover::after{
                 display: flex;
             }
             .plate::before{
@@ -93,7 +95,7 @@
                 position: absolute;
                 width: 60px;
                 height: 30px;
-                top: -60%;
+                top: 0;
                 left: 0;
                 background-color: rgb(255, 255, 255);
                 display: none;
@@ -101,8 +103,11 @@
                 justify-content: center;
                 align-items: center;
                 font-size: 15px;
-                // box-shadow: inset 0px 0px 3px 1px rgba(0,0,0,0.75);
                 padding: 0px 5px;
+                color: black;
+                top : -50%;
+                left : 150%;
+                transform : translate(-50%, -50%);
             }
             .apple:hover::after{
                 display: flex;
@@ -130,7 +135,8 @@
                 align-items: center;
                 font-size: 20px;
                 transform: perspective(0px) rotateX(0deg);
-                padding: 0px 5px;
+                padding: 0px 10px;
+                color: black;
             }
             .plate-fancy{
                 width: 100px;
@@ -159,6 +165,28 @@
                 box-shadow: inset 3px -2px  rgb(227, 148, 0), -1px 6px 2px -1px rgba(0, 0, 0, 0.296);
                 border-radius: 100%;
                 position: relative;
+                &::after{
+                    content: "<orange>";
+                    position: absolute;
+                    width: 60px;
+                    height: 30px;
+                    top: 0;
+                    left: 0;
+                    background-color: rgb(255, 255, 255);
+                    display: none;
+                    text-align: center;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 15px;
+                    padding: 0px 5px;
+                    color: black;
+                    top : -50%;
+                    left : 150%;
+                    transform : translate(-50%, -50%);
+                }
+                &.open::after{
+                    display: flex;
+                }
             }
             .orange:before {
                 content: "";
@@ -171,7 +199,7 @@
                 border-radius: 50% 0 50% 0;
                 border-bottom-color: #437512;
                 border-right-color: #437512;
-              }
+            }
         }
         &-tabletop > div{
             width: 100px;
