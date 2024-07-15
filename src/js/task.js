@@ -3,6 +3,7 @@ import levelsObject from '../JSON/levels.json';
 // variables for Levels changing info
 
 let table = document.querySelector('#table');
+let tableLow = document.querySelector('#tableLow');
 let arrowL = document.querySelector('#arrow-left');
 let arrowR = document.querySelector('#arrow-right');
 let levelTitle = document.querySelector('#level-title');
@@ -36,6 +37,8 @@ arrowR.addEventListener( "click" , () => {
     if (levelCounter > levelsObject.levels.length) levelCounter = levelsObject.levels.length;
     levelUpdate();
 });
+
+
 
 // checking answer
 const answerReduce = (answer) => {
@@ -77,7 +80,7 @@ const levelDone = () => {
 }
 
 const levelUpdate = () => {
-    table.innerHTML = ''; // clean table for div's
+    table.innerHTML = ''; 
     
     let prevNode = table;
     let currentLevel = levelsObject.levels[levelCounter - 1];
@@ -91,30 +94,44 @@ const levelUpdate = () => {
     asideSelector.innerHTML = currentLevel.asideSelector;
     asideText.innerHTML = currentLevel.asideText;
     asideExamples.innerHTML = currentLevel.asideExamples;
-    
-    
+
     levelDone();
 
     for(let i = 0; i < currentLevel.tags[0].length; i++){
+        let surface = table;
         for(let j = 0; j < currentLevel.tags.length; j++){
             if(!currentLevel.tags[j][i]) continue;
+
             const nodeIn = document.createElement('div');
-            if(j > 1) {
-                nodeIn.style.top = `${j - 3}0%`;
-                (nodeIn.className == "orange") ? nodeIn.style.boxShadow = "inset 3px -2px rgb(227, 148, 0)" : "inset 6px -2px  #cc1022";  
-            } 
-            // nodeIn.addEventListener('mouseover', () => {
-            //     nodeIn.classList.add('open');
-            // });
-            // nodeIn.addEventListener('mouseout', () => {
-            //     nodeIn.classList.remove('open');
-            // });
-            let surface = prevNode;
-            nodeIn.classList.add(currentLevel.tags[j][i]);
-            prevNode = nodeIn;
+            
+            if(j > 1) nodeIn.style.top = `${-j + 6}0px`;
+            if(j == 0){
+                if(currentLevel.tags[0][i].includes("bento") || currentLevel.tags[0][i].includes("plate") || currentLevel.tags[0][i].includes("plate-fancy")){
+                    nodeIn.classList = currentLevel.tags[j][i];
+                    table.append(nodeIn);
+                    surface = nodeIn;
+                    nodeIn.addEventListener('mouseover', (event) => {
+                        event.stopPropagation();
+                        nodeIn.classList.add('open');
+                    });
+                    nodeIn.addEventListener('mouseout', () => {
+                        nodeIn.classList.remove('open');
+                    });
+                    // nodeIn.setAttribute("choosen", "a");
+                    continue;
+                }
+            }
+            nodeIn.addEventListener('mouseover', (event) => {
+                event.stopPropagation();
+                nodeIn.classList.add('open');
+            });
+            nodeIn.addEventListener('mouseout', () => {
+                nodeIn.classList.remove('open');
+            });
+            nodeIn.classList = currentLevel.tags[j][i];
+            // nodeIn.setAttribute("choosen", "a");
             surface.append(nodeIn);
         } 
-        prevNode = table;
     }
 };    
 levelUpdate();

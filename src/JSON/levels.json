@@ -17,7 +17,7 @@
         {
             "level" : 2,
             "tags" : [
-                ["plate", "plate", "plate"],
+                ["plate choosen", "plate", "plate"],
                 ["apple", "apple", "apple"]
             ],
             "select": "apples",
@@ -48,7 +48,7 @@
             "tags" : [
                 ["plate-fancy", "plate", "bento"]
             ],
-            "select": "bento boxes",
+            "select": "fancy plate",
             "asideTitle" : "ID Selector",
             "asideSubTitle" : "Select elements with an ID",
             "asideSelector" : "#id",
@@ -60,10 +60,10 @@
         {
             "level" : 5,
             "tags" : [
-                ["bento", "plate", "apple"],
-                ["", "apple", ""]
+                ["apple", "apple small ", "plate", "plate"],
+                ["", "", "apple small", ""]
             ],
-            "select": "bento boxes",
+            "select": "small apples",
             "asideTitle" : "Descendant Selector",
             "asideSubTitle" : "Select an element inside another element",
             "asideSelector" : "A  B",
@@ -75,21 +75,36 @@
         {
             "level" : 6,
             "tags" : [
-                ["bento", "plate", "apple"],
-                ["", "orange", ""],
-                ["", "orange", ""],
-                ["", "orange", ""],
-                ["", "orange", ""],
-                ["", "orange", ""],
-                ["", "orange", ""]
+                ["bento", "plate-fancy", "plate"],
+                ["orange", "blueberry", "blueberry"],
+                ["orange", "blueberry", "blueberry"],
+                ["orange", "blueberry", "blueberry"],
+                ["orange", "blueberry", "blueberry"],
+                ["orange", "blueberry", "blueberry"],
+                ["orange", "blueberry", "blueberry"]
             ],
             "select": "bento boxes",
-            "asideTitle" : "Descendant Selector",
-            "asideSubTitle" : "Select an element inside another element",
-            "asideSelector" : "A  B",
-            "asideText" : "Selects all <span>B</span> inside of <span>A</span>. <span>B</span> is called a descendant because it is inside of another element.",
-            "asideExamples" : "<div class=\"level__info-example__item\"><span>p  strong</span> selects all <span>&lt;strong&gt;</span> elements that are inside of any <span>&lt;p&gt;</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#fancy  span</span> selects any <span>&lt;span&gt;</span> elements that are inside of the element with <span>id=\"fancy\"</span></div>",
-            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento>&emsp;&lt;/bento&gt;</bento><br><plate><apple choosen = \"a\">&nbsp;&lt;plate&gt;<br>&emsp;&nbsp;&lt;/apple&gt<br>&nbsp;&lt;/plate&gt;</apple></plate><br><apple>&emsp;&lt;/apple&gt;</apple><br>&lt;/div&gt;",
+            "asideTitle" : "",
+            "asideSubTitle" : "Combine the Descendant & ID Selectors",
+            "asideSelector" : "#id  A",
+            "asideText" : "You can combine any selector with the descendent selector.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>#cool span</span> selects all <span>&lt;span&gt;</span>  elements that are inside of elements with <span>id=\"cool\"</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#fancy  span</span> selects any <span>&lt;span&gt;</span> elements that are inside of the element with <span>id=\"fancy\"</span></div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento><orange>&nbsp;&lt;bento&gt;<br>&emsp;&nbsp;&lt;/orange&gt<br>&nbsp;&lt;/bento&gt;</orange></bento><br><plate id = \"fancy\"><blueberry choosen = \"a\">&nbsp;&lt;plate id =\"fancy\"&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate&gt;</blueberry></plate><br><plate><blueberry>&nbsp;&lt;plate&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate&gt;</blueberry></plate><br>&lt;/div&gt;",
+            "answer" : 1
+        },
+        {
+            "level" : 7,
+            "tags" : [
+                ["bento", "plate-fancy", "plate"],
+                ["orange-small", "blueberry", "blueberry"]
+            ],
+            "select": "bento boxes",
+            "asideTitle" : "",
+            "asideSubTitle" : "Combine the Descendant & ID Selectors",
+            "asideSelector" : "#id  A",
+            "asideText" : "You can combine any selector with the descendent selector.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>#cool span</span> selects all <span>&lt;span&gt;</span>  elements that are inside of elements with <span>id=\"cool\"</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#fancy  span</span> selects any <span>&lt;span&gt;</span> elements that are inside of the element with <span>id=\"fancy\"</span></div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento><orange>&nbsp;&lt;bento&gt;<br>&emsp;&nbsp;&lt;/orange&gt<br>&nbsp;&lt;/bento&gt;</orange></bento><br><plate id = \"fancy\"><blueberry choosen = \"a\">&nbsp;&lt;plate id =\"fancy\"&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate-fancy&gt;</blueberry></plate><br><plate><blueberry>&nbsp;&lt;plate&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate&gt;</blueberry></plate><br>&lt;/div&gt;",
             "answer" : 1
         }
     ]
