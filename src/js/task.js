@@ -13,7 +13,13 @@ let asideSubTitle = document.querySelector('#asideSubTitle');
 let asideSelector = document.querySelector('#asideSelector');
 let asideText = document.querySelector('#asideText');
 let asideExamples = document.querySelector('#asideExamples');
-let asideCheckbox = document.querySelector('#checkbox');
+
+// burger menu 
+
+let burgerMain = document.querySelector('#burger-content');
+let asideCheckbox = document.querySelector('#burger-checkbox');
+let burgerBox = document.querySelector('#burger-box');
+
 // variables for checking answer
 
 let htmlEditor = document.querySelector('#html-editor');
@@ -27,6 +33,8 @@ let editors = document.querySelector('#editors');
 
 
 let levelCounter = 1;
+
+levelCounter = localStorage.getItem('lastLevelUser');
 
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
@@ -55,7 +63,7 @@ const answerReduce = (answer) => {
 btn.addEventListener("click", () => {
     let answer = input.value;
     if(answerReduce(answer)){
-        localStorage.setItem(`level${levelCounter}`, 1) 
+        localStorage.setItem(`level${levelCounter}`, 1);
         arrowR.click();
         input.value = '';
     } else{ // shaking animation if answer is wrong
@@ -98,11 +106,31 @@ const levelDone = () => {
     : checkBox.style.filter = "none";
 }
 
+
+let currentLevel = levelsObject.levels[levelCounter - 1];
+const burgerModal = () => {
+    if(asideCheckbox.hasAttribute('active')){
+        burgerMain.style.right = "0px";
+        for(let i = 0; i < levelsObject.levels.length ; i++){
+            const burgerItem = document.createElement('div');
+            burgerItem.className = 'level__burger-box__item';
+            burgerItem.innerHTML = `<img src="./public/img/checkbox.svg" alt=""><span>${i + 1}</span>&emsp;${levelsObject.levels[i].asideSelector}`;
+            burgerBox.append(burgerItem);
+        }
+    } else{
+        burgerMain.style.right = "-100%";
+        burgerBox.innerHTML = "";
+    }
+}
+console.log(levelsObject.levels.length)
+export {burgerModal} // export for burger-menu.js file 
 const levelUpdate = () => {
     table.innerHTML = ''; 
     
+    localStorage.setItem(`lastLevelUser`, levelCounter); 
+
+
     let prevNode = table;
-    let currentLevel = levelsObject.levels[levelCounter - 1];
 
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
     taskTitle.innerHTML = `Select the ${currentLevel.select}`;
@@ -140,5 +168,5 @@ const levelUpdate = () => {
             surface.append(nodeIn);
         } 
     }
-};    
+};
 levelUpdate();
