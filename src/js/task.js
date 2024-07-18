@@ -13,6 +13,7 @@ let asideSubTitle = document.querySelector('#asideSubTitle');
 let asideSelector = document.querySelector('#asideSelector');
 let asideText = document.querySelector('#asideText');
 let asideExamples = document.querySelector('#asideExamples');
+let asideCheckbox = document.querySelector('#checkbox');
 // variables for checking answer
 
 let htmlEditor = document.querySelector('#html-editor');
@@ -71,6 +72,24 @@ input.addEventListener('keypress', function(e){
     }
 });
 
+const modalReduce = (nodeIn, mode) => {
+    const modal = document.createElement('div');   
+    modal.classList = 'modal';
+    nodeIn.addEventListener('mouseover', (event) => {
+        event.stopPropagation();
+        tableLow.append(modal);
+        modal.innerHTML = `&lt;${nodeIn.className}&gt;`
+        document.body.style.position = 'relative';
+        modal.style.left = `${nodeIn.getBoundingClientRect().x + nodeIn.getBoundingClientRect().width/4}px`;
+        modal.style.top = `${nodeIn.getBoundingClientRect().y - nodeIn.getBoundingClientRect().height/mode}px`;
+        nodeIn.setAttribute("modal", "true");
+    });
+    nodeIn.addEventListener('mouseout', () => {
+        nodeIn.removeAttribute('modal');
+        (Array.from(tableLow.children).includes(modal)) ? tableLow.removeChild(modal) : 0;
+    });
+}
+
 
 // checkbox is green when lvl is complete
 const levelDone = () => {
@@ -110,24 +129,12 @@ const levelUpdate = () => {
                     nodeIn.classList = currentLevel.tags[j][i];
                     table.append(nodeIn);
                     surface = nodeIn;
-                    nodeIn.addEventListener('mouseover', (event) => {
-                        event.stopPropagation();
-                        nodeIn.classList.add('open');
-                    });
-                    nodeIn.addEventListener('mouseout', () => {
-                        nodeIn.classList.remove('open');
-                    });
+                    modalReduce(nodeIn, 3);
                     // nodeIn.setAttribute("choosen", "a");
                     continue;
                 }
             }
-            nodeIn.addEventListener('mouseover', (event) => {
-                event.stopPropagation();
-                nodeIn.classList.add('open');
-            });
-            nodeIn.addEventListener('mouseout', () => {
-                nodeIn.classList.remove('open');
-            });
+            modalReduce(nodeIn , 1);
             nodeIn.classList = currentLevel.tags[j][i];
             // nodeIn.setAttribute("choosen", "a");
             surface.append(nodeIn);

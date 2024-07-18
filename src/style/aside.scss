@@ -69,20 +69,19 @@
             background-color: transparent;
             position: relative;
         }
-        &-burger__menu div{
+        &-burger__menu .a{
             border-top: 2px solid rgb(103, 103, 103);
             margin-top: 50%;
         }
-        &-burger__menu div::before{
+        &-burger__menu .a::before{
             position: absolute;
             content : "";
             width: 26px;
             height: 2px;
             background-color: rgb(103, 103, 103);
             top: 24px;
-
         }
-        &-burger__menu div::after{
+        &-burger__menu .a::after{
             position: absolute;
             content : "";
             width: 26px;

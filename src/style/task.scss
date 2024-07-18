@@ -1,3 +1,4 @@
+
 .task{
     &__picture{
         margin: 0px auto;
@@ -26,41 +27,9 @@
                 height: 100px;              
                 background-color: white;
                 border-radius: 100%;
-                position: relative;
                 justify-content: center;
                 box-shadow: -1px 10px 0px -3px rgba(0, 0, 0, 0.296);
                 transform: none;
-                &.open::after{
-                display: flex;
-            }
-            }
-            .plate::after,
-            .plate-fancy::after{
-                content: "<plate>";
-                position: absolute;
-                width: fit-content;
-                padding: 5px 5px;
-                height: 50px;
-                top: -60%;
-                right: -50%;
-                background-color: rgb(255, 255, 255);
-                display: none;
-                text-align: center;
-                justify-content: center;
-                align-items: center;
-                font-size: 20px;
-                transform: perspective(0px) rotateX(0deg);
-                padding: 0px 10px;
-                color: black;
-                animation : none;
-
-            }
-            // .plate:hover::after,
-            .plate-fancy:hover::after,
-            .bento:hover::after,
-            .orange:hover::after,
-            .blueberry:hover::after{
-                display: flex;
             }
             .plate::before{
                 content: "";
@@ -91,28 +60,8 @@
                 height: 10px;
                 background-color: brown;
             }
-            .apple::after{
-                content: "<apple>";
-                position: absolute;
-                width: 60px;
-                height: 30px;
-                top: 0;
-                left: 0;
-                background-color: rgb(255, 255, 255);
-                display: none;
-                text-align: center;
-                justify-content: center;
-                align-items: center;
-                font-size: 15px;
-                padding: 0px 5px;
-                color: black;
-                top : -50%;
-                left : 150%;
-                transform : translate(-50%, -50%);
-            }
-            .apple:hover::after{
-                display: flex;
-            }
+            
+            
             .bento{
                 border-top: 5px solid brown;
                 border-bottom: 5px solid brown;
@@ -120,24 +69,7 @@
                 box-shadow: inset 0px -1px 10px 0px rgba(0,0,0,0.75);
                 border-radius: 5px;
                 position: relative;
-                &::after{
-                    content: "<bento>";
-                    position: absolute;
-                    width: fit-content;
-                    padding: 5px 5px;
-                    height: 50px;
-                    top: -60%;
-                    right: -50%;
-                    background-color: rgb(255, 255, 255);
-                    display: none;
-                    text-align: center;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 20px;
-                    transform: perspective(0px) rotateX(0deg);
-                    padding: 0px 10px;
-                    color: black;
-                }
+                
             }
             .plate-fancy{
                 width: 100px;
@@ -159,12 +91,7 @@
                     transform : translate(-50%, -50%);
                     box-shadow: inset -1px 10px 5px 0px rgba(0, 0, 0, 0.142), 0px 0px 0px 5px white, 0px 0px 0px 12px rgb(80, 211, 255);
                 }
-                &::after{
-                    content: "<plate id = \"fancy\">";
-                    padding: 0px 5px;
-                    color: black;
-                    width: 175px;
-                }
+                
             }
             .orange{
                 width: 40px;
@@ -172,25 +99,7 @@
                 background-color:  rgb(255, 204, 0);
                 box-shadow: inset 3px -2px  rgb(227, 148, 0), -1px 6px 2px -1px rgba(0, 0, 0, 0.296);
                 border-radius: 100%;
-                &::after{
-                    content: "<orange>";
-                    position: absolute;
-                    width: fit-content;
-                    height: 30px;
-                    top: 0;
-                    left: 0;
-                    background-color: rgb(255, 255, 255);
-                    display: none;
-                    text-align: center;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 15px;
-                    padding: 0px 5px;
-                    color: black;
-                    top : -50%;
-                    left : 150%;
-                    transform : translate(-50%, -50%);
-                }
+                
                 &:before {
                     content: "";
                     position: absolute;
@@ -212,28 +121,7 @@
                     z-index: 2;
                     position: relative;
                 }
-                &-small::after{
-                    content: "<orange class = \"small\">";
-                    position: absolute;
-                    width: 150px;
-                    height: 30px;
-                    top: 50%;
-                    left: 50%;
-                    background-color: rgb(255, 255, 255);
-                    display: none;
-                    text-align: center;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 13px;
-                    padding: 0px 5px;
-                    color: black;
-                    top : -50%;
-                    left : 150%;
-                    transform : translate(-50%, -50%);
-                    z-index: 5;
-                    justify-content: center;
-                    align-items: center;
-                }
+                
                 &-small::before{
                     content: "";
                     position: absolute;
@@ -246,9 +134,7 @@
                     border-bottom-color: #437512;
                     border-right-color: #437512;
                 }
-                &-small:hover::after{
-                    display: flex;
-                }
+                
             }
             .blueberry{
                 width: 40px;
@@ -265,25 +151,6 @@
                     background-color: #3e4d64;
                     border-radius:50%;
                 }
-                &::after{
-                    content: "<blueberry>";
-                    position: absolute;
-                    width: fit-content;
-                    height: 30px;
-                    top: 0;
-                    left: 0;
-                    background-color: rgb(255, 255, 255);
-                    display: none;
-                    text-align: center;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 15px;
-                    padding: 0px 5px;
-                    color: black;
-                    top : -50%;
-                    left : 150%;
-                    transform : translate(-50%, -50%);
-                }
             }
             .small{
                 width: 20px;
@@ -291,9 +158,6 @@
             }
             .choosen{
                 animation: chooseme 1s linear infinite;
-                &::after{
-                    animation: anti-chooseme 1s linear infinite;
-                }
             }
         }
         &-tabletop > div{
@@ -325,7 +189,25 @@
         }
     }
 }
-
+.plate,
+.bento{
+    position: relative;
+}
+.modal{
+    position: absolute;
+    width: fit-content;
+    height: 30px;
+    background-color: black;
+    z-index: 30;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 0px 10px;
+    color: black;
+}
 @keyframes tabletop {
     0%{
         transform: scale(0) perspective(100px) rotateX(5deg);
