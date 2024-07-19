@@ -34,7 +34,7 @@ let editors = document.querySelector('#editors');
 
 let levelCounter = 1;
 
-levelCounter = localStorage.getItem('lastLevelUser');
+levelCounter = (localStorage.getItem('lastLevelUser')) ? localStorage.getItem('lastLevelUser') : 1;
 
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
@@ -106,36 +106,51 @@ const levelDone = () => {
     : checkBox.style.filter = "none";
 }
 
+const burgerLvlCheck = (level) => {
+    return localStorage.getItem(`level${level}`) ? 
+        "filter: brightness(0) saturate(100%) invert(39%) sepia(89%) saturate(1196%) hue-rotate(67deg) brightness(98%) contrast(101%)"
+    : "filter: none";
+}
 
-let currentLevel = levelsObject.levels[levelCounter - 1];
+import { burgerReduce } from './burger-menu';
+
+export {burgerModal} // export for burger-menu.js file 
+export {burgerMain} // export for burger-menu.js file 
+export {burgerBox} // export for burger-menu.js file 
+
 const burgerModal = () => {
     if(asideCheckbox.hasAttribute('active')){
-        burgerMain.style.right = "0px";
         for(let i = 0; i < levelsObject.levels.length ; i++){
             const burgerItem = document.createElement('div');
             burgerItem.className = 'level__burger-box__item';
-            burgerItem.innerHTML = `<img src="./public/img/checkbox.svg" alt=""><span>${i + 1}</span>&emsp;${levelsObject.levels[i].asideSelector}`;
+            burgerItem.innerHTML = `<img src="./public/img/checkbox.svg" alt="" style="${burgerLvlCheck(i + 1)}"><span>${i + 1}</span>&emsp;${levelsObject.levels[i].asideSelector}`;
+            if(levelCounter == i + 1){
+                burgerItem.style.backgroundColor = "rgb(50, 50, 50)";
+            }
+            burgerItem.addEventListener('click', () => {
+                levelCounter = i + 1;
+                asideCheckbox.removeAttribute('active');
+                burgerReduce(false);
+                levelUpdate();
+            });
             burgerBox.append(burgerItem);
         }
-    } else{
-        burgerMain.style.right = "-100%";
-        burgerBox.innerHTML = "";
-    }
+    } 
 }
-console.log(levelsObject.levels.length)
-export {burgerModal} // export for burger-menu.js file 
+
 const levelUpdate = () => {
     table.innerHTML = ''; 
     
     localStorage.setItem(`lastLevelUser`, levelCounter); 
-
-
+    let currentLevel = levelsObject.levels[levelCounter - 1];
+    
+    
     let prevNode = table;
-
+    
     levelTitle.innerHTML = `Level ${levelCounter} of 32`;
     taskTitle.innerHTML = `Select the ${currentLevel.select}`;
     htmlEditor.innerHTML = currentLevel.HTMLeditor;
-
+    
     asideTitle.innerHTML = currentLevel.asideTitle;
     asideSubTitle.innerHTML = currentLevel.asideSubTitle;
     asideSelector.innerHTML = currentLevel.asideSelector;
@@ -170,3 +185,4 @@ const levelUpdate = () => {
     }
 };
 levelUpdate();
+levelDone();
