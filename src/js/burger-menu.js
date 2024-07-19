@@ -7,8 +7,6 @@ let topStick = document.querySelector('#top-stick');
 let bottomStick = document.querySelector('#bottom-stick');
 let midStick = document.querySelector('#mid-stick');
 
-
-
 const burgerReduce = (boolean) => {
     if(boolean){
         bottomStick.style.transform = "rotate(-45deg)";

@@ -224,19 +224,19 @@
 }
 @keyframes chooseme {
     0% {
-        transform: scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
     25%{
-        transform: scale(1.05);
+        transform: translate(-50%, -50%) scale(1.05);
     }
     50%{
-        transform: scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
     75%{
-        transform: scale(0.95);
+        transform: translate(-50%, -50%) scale(0.95);
     }
     100%{
-        transform: scale(1);
+        transform: translate(-50%, -50%) scale(1);
     }
 }
 @keyframes anti-chooseme {
@@ -244,13 +244,13 @@
         transform: scale(1);
     }
     25%{
-        transform: scale(0.95);
+        transform: scale(1.05);
     }
     50%{
         transform: scale(1);
     }
     75%{
-        transform: scale(1.05);
+        transform: scale(0.95);
     }
     100%{
         transform: scale(1);

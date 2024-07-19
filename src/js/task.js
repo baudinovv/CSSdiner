@@ -80,24 +80,6 @@ input.addEventListener('keypress', function(e){
     }
 });
 
-const modalReduce = (nodeIn, mode) => {
-    const modal = document.createElement('div');   
-    modal.classList = 'modal';
-    nodeIn.addEventListener('mouseover', (event) => {
-        event.stopPropagation();
-        tableLow.append(modal);
-        modal.innerHTML = `&lt;${nodeIn.className}&gt;`
-        document.body.style.position = 'relative';
-        modal.style.left = `${nodeIn.getBoundingClientRect().x + nodeIn.getBoundingClientRect().width/4}px`;
-        modal.style.top = `${nodeIn.getBoundingClientRect().y - nodeIn.getBoundingClientRect().height/mode}px`;
-        nodeIn.setAttribute("modal", "true");
-    });
-    nodeIn.addEventListener('mouseout', () => {
-        nodeIn.removeAttribute('modal');
-        (Array.from(tableLow.children).includes(modal)) ? tableLow.removeChild(modal) : 0;
-    });
-}
-
 
 // checkbox is green when lvl is complete
 const levelDone = () => {
@@ -106,7 +88,7 @@ const levelDone = () => {
     : checkBox.style.filter = "none";
 }
 
-const burgerLvlCheck = (level) => {
+const burgerLvlCheck = (level) => { // checkbox is green when lvl is complete in aside menu
     return localStorage.getItem(`level${level}`) ? 
         "filter: brightness(0) saturate(100%) invert(39%) sepia(89%) saturate(1196%) hue-rotate(67deg) brightness(98%) contrast(101%)"
     : "filter: none";
@@ -118,19 +100,37 @@ export {burgerModal} // export for burger-menu.js file
 export {burgerMain} // export for burger-menu.js file 
 export {burgerBox} // export for burger-menu.js file 
 
-const burgerModal = () => {
+const modalReduce = (nodeIn, mode) => { // creating mini-modal around table elements
+    const modal = document.createElement('div');   
+    modal.classList = 'modal';
+    nodeIn.addEventListener('mouseover', (event) => {
+        event.stopPropagation();
+        tableLow.append(modal); 
+        modal.innerHTML = `&lt;${nodeIn.className.replace(' choosen ', '').replace('small', 'class = "small"').replace('-fancy', ' id ="fancy"')}&gt;` // rewriting modal text
+        document.body.style.position = 'relative';
+        modal.style.left = `${nodeIn.getBoundingClientRect().x + nodeIn.getBoundingClientRect().width/4}px`; // position relative to e.target element
+        modal.style.top = `${nodeIn.getBoundingClientRect().y - nodeIn.getBoundingClientRect().height/mode}px`; // position relative to e.target element
+        nodeIn.setAttribute("modal", "true");
+    });
+    nodeIn.addEventListener('mouseout', () => {
+        nodeIn.removeAttribute('modal');
+        (Array.from(tableLow.children).includes(modal)) ? tableLow.removeChild(modal) : 0;
+    });
+}
+
+const burgerModal = () => { // creating burger menu 
     if(asideCheckbox.hasAttribute('active')){
         for(let i = 0; i < levelsObject.levels.length ; i++){
             const burgerItem = document.createElement('div');
             burgerItem.className = 'level__burger-box__item';
             burgerItem.innerHTML = `<img src="./public/img/checkbox.svg" alt="" style="${burgerLvlCheck(i + 1)}"><span>${i + 1}</span>&emsp;${levelsObject.levels[i].asideSelector}`;
             if(levelCounter == i + 1){
-                burgerItem.style.backgroundColor = "rgb(50, 50, 50)";
+                burgerItem.style.backgroundColor = "rgb(50, 50, 50)"; // currentlevel item bckgrnd in burger menu 
             }
             burgerItem.addEventListener('click', () => {
                 levelCounter = i + 1;
                 asideCheckbox.removeAttribute('active');
-                burgerReduce(false);
+                burgerReduce(false); // where burgerItem is clicked, burger menu is closed 
                 levelUpdate();
             });
             burgerBox.append(burgerItem);
@@ -168,18 +168,17 @@ const levelUpdate = () => {
             
             if(j > 1) nodeIn.style.top = `${-j + 6}0px`;
             if(j == 0){
+                if(currentLevel.tags[j][i].includes('choosen')) nodeIn.style.animation = "anti-chooseme 1s linear infinite";
                 if(currentLevel.tags[0][i].includes("bento") || currentLevel.tags[0][i].includes("plate") || currentLevel.tags[0][i].includes("plate-fancy")){
                     nodeIn.classList = currentLevel.tags[j][i];
                     table.append(nodeIn);
                     surface = nodeIn;
                     modalReduce(nodeIn, 3);
-                    // nodeIn.setAttribute("choosen", "a");
                     continue;
                 }
             }
-            modalReduce(nodeIn , 1);
-            nodeIn.classList = currentLevel.tags[j][i];
-            // nodeIn.setAttribute("choosen", "a");
+            (currentLevel.tags[j][i].includes('small')) ? modalReduce(nodeIn , 0.5) : modalReduce(nodeIn , 1);
+            nodeIn.classList = currentLevel.tags[j][i];   
             surface.append(nodeIn);
         } 
     }
