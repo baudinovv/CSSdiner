@@ -67,7 +67,7 @@
                 ["orange", "blueberry", "blueberry"],
                 ["orange", "blueberry", "blueberry"],
                 ["orange", "blueberry", "blueberry"]
-            ],
+            ], 
             "select": "bento boxes",
             "asideTitle" : "",
             "asideSubTitle" : "Combine the Descendant & ID Selectors",
