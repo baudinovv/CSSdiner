@@ -12,7 +12,8 @@
             "asideText" : "Selects all elements of type <span>A</span>. Type refers to the type of tag, so <span>&lt;div&gt;</span>, <span>&lt;p&gt;</span> and &lt;ul&gt; are all different element types.",
             "asideExamples" : "<div class=\"level__info-example__item\"><span>div</span> selects all <span>&lt;div&gt;</span> elements.</div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>p</span> selects all <span>&lt;p&gt;</span> elements.</div>",
             "HTMLeditor": "&lt;div class=\"table\"&gt; <br><plate choosen = \"a\" >&emsp;&lt;/plate&gt;</plate><br><plate choosen = \"a\" >&nbsp;&lt;/plate&gt;</plate><br>&lt;/div&gt;",
-            "answer" : 2
+            "answer" : 2,
+            "example" : true
         },
         {
             "level" : 2,
@@ -26,7 +27,8 @@
             "asideText" : "Selects all elements of type <span>A</span>. Type refers to the type of tag, so <span>&lt;div&gt;</span>, <span>&lt;p&gt;</span> and &lt;ul&gt; are all different element types.",
             "asideExamples" : "<div class=\"level__info-example__item\"><span>div</span> selects all <span>&lt;div&gt;</span> elements.</div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>p</span> selects all <span>&lt;p&gt;</span> elements.</div>",
             "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento choosen = \"a\">&emsp;&lt;/bento&gt;</bento><br><plate>&nbsp;&lt;/plate&gt;</plate><br><bento choosen = \"a\">&emsp;&lt;/bento&gt;</bento><br>&lt;/div&gt;",
-            "answer" : 2
+            "answer" : 2,
+            "example" : true
         },
         {
             "level" : 3,
@@ -40,57 +42,400 @@
             "asideText" : "Selects the element with a specific <span>id</span>. You can also combine the ID selector with the type selector.",
             "asideExamples" : "<div class=\"level__info-example__item\"><span>#cool</span> selects any element with <span>id=\"cool\"</span>.</div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>ul#long</span> selects <span>ul id=\"long\"</span></div>",
             "HTMLeditor": "&lt;div class=\"table\"&gt; <br><plate id = \"fancy\" choosen = \"a\">&emsp;&lt;/plate id = \"fancy\" &gt;</plate><br><plate>&nbsp;&lt;/plate&gt;</plate><br><bento>&emsp;&lt;/bento&gt;</bento><br>&lt;/div&gt;",
-            "answer" : 1
+            "answer" : 1,
+            "example" : true
         },
         {
             "level" : 4,
             "tags" : [
-                ["apple", "apple small ", "plate", "plate"],
-                ["", "", "apple small", ""]
+                ["bento", "plate", "apple"],
+                ["", "apple choosen ", ""]
             ],
-            "select": "small apples",
+            "select": "apple",
             "asideTitle" : "Descendant Selector",
             "asideSubTitle" : "Select an element inside another element",
             "asideSelector" : "A  B",
             "asideText" : "Selects all <span>B</span> inside of <span>A</span>. <span>B</span> is called a descendant because it is inside of another element.",
             "asideExamples" : "<div class=\"level__info-example__item\"><span>p  strong</span> selects all <span>&lt;strong&gt;</span> elements that are inside of any <span>&lt;p&gt;</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#fancy  span</span> selects any <span>&lt;span&gt;</span> elements that are inside of the element with <span>id=\"fancy\"</span></div>",
             "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento>&emsp;&lt;/bento&gt;</bento><br><plate><apple choosen = \"a\">&nbsp;&lt;plate&gt;<br>&emsp;&nbsp;&lt;/apple&gt<br>&nbsp;&lt;/plate&gt;</apple></plate><br><apple>&emsp;&lt;/apple&gt;</apple><br>&lt;/div&gt;",
-            "answer" : 1
+            "answer" : 1,
+            "example" : true
         },
         {
             "level" : 5,
             "tags" : [
                 ["bento", "plate-fancy", "plate"],
-                ["orange", "blueberry", "blueberry"],
-                ["orange", "blueberry", "blueberry"],
-                ["orange", "blueberry", "blueberry"],
-                ["orange", "blueberry", "blueberry"],
-                ["orange", "blueberry", "blueberry"],
-                ["orange", "blueberry", "blueberry"]
+                ["orange", "blueberry choosen ", "blueberry"]
             ], 
-            "select": "bento boxes",
+            "select": "blueberry on the fancy plate",
             "asideTitle" : "",
             "asideSubTitle" : "Combine the Descendant & ID Selectors",
             "asideSelector" : "#id  A",
             "asideText" : "You can combine any selector with the descendent selector.",
             "asideExamples" : "<div class=\"level__info-example__item\"><span>#cool span</span> selects all <span>&lt;span&gt;</span>  elements that are inside of elements with <span>id=\"cool\"</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#fancy  span</span> selects any <span>&lt;span&gt;</span> elements that are inside of the element with <span>id=\"fancy\"</span></div>",
             "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento><orange>&nbsp;&lt;bento&gt;<br>&emsp;&nbsp;&lt;/orange&gt<br>&nbsp;&lt;/bento&gt;</orange></bento><br><plate id = \"fancy\"><blueberry choosen = \"a\">&nbsp;&lt;plate id =\"fancy\"&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate&gt;</blueberry></plate><br><plate><blueberry>&nbsp;&lt;plate&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate&gt;</blueberry></plate><br>&lt;/div&gt;",
-            "answer" : 1
+            "answer" : 1,
+            "example" : true
         },
         {
             "level" : 6,
             "tags" : [
-                ["bento", "plate-fancy", "plate"],
-                ["orange-small", "blueberry", "blueberry"]
+                ["apple", "apple small choosen ", "plate", "plate"],
+                ["", "", "apple small choosen ", ""]
             ],
-            "select": "bento boxes",
+            "select": "small apples",
+            "asideTitle" : "Class Selector",
+            "asideSubTitle" : "Select elements by their class",
+            "asideSelector" : ".classname",
+            "asideText" : "The class selector selects all elements with that class attribute. Elements can only have one ID, but many classes.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>.neato</span> selects all elements with <span>class=\"neato\"</span></div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> <apple>&nbsp;&lt;/apple&gt;</apple> <br>&nbsp;<apple choosen = \"a\" class =\"small\">&lt;/apple class = \"small\"&gt;<br></apple>&nbsp;<plate>&lt;plate&gt;<br><apple choosen = \"a\" class =\"small\">&nbsp;&nbsp;&lt;/apple class = \"small\"&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate> <br> <plate>&nbsp;&lt;/plate&gt;</plate> <br>&lt;/div&gt;",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 7,
+            "tags" : [
+                ["apple", "apple small", "bento", "plate", "plate"],
+                ["", "", "orange-small choosen ", "orange", "orange-small choosen "]
+            ],
+            "select": "small oranges",
             "asideTitle" : "",
-            "asideSubTitle" : "Combine the Descendant & ID Selectors",
-            "asideSelector" : "#id  A",
-            "asideText" : "You can combine any selector with the descendent selector.",
-            "asideExamples" : "<div class=\"level__info-example__item\"><span>#cool span</span> selects all <span>&lt;span&gt;</span>  elements that are inside of elements with <span>id=\"cool\"</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#fancy  span</span> selects any <span>&lt;span&gt;</span> elements that are inside of the element with <span>id=\"fancy\"</span></div>",
-            "HTMLeditor": "&lt;div class=\"table\"&gt; <br><bento><orange>&nbsp;&lt;bento&gt;<br>&emsp;&nbsp;&lt;/orange&gt<br>&nbsp;&lt;/bento&gt;</orange></bento><br><plate id = \"fancy\"><blueberry choosen = \"a\">&nbsp;&lt;plate id =\"fancy\"&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate-fancy&gt;</blueberry></plate><br><plate><blueberry>&nbsp;&lt;plate&gt;<br>&emsp;&nbsp;&lt;/blueberry&gt<br>&nbsp;&lt;/plate&gt;</blueberry></plate><br>&lt;/div&gt;",
-            "answer" : 1
+            "asideSubTitle" : "Combine the Class Selector",
+            "asideSelector" : "A.className",
+            "asideText" : "You can combine the class selector with other selectors, like the type selector.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>ul.important</span> selects all <span>&lt;span&gt;</span>  elements that have <span>class=\"important\"</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>#big.wide</span> selects all elements with <span>id=\"big\"</span> that also have <span>class=\"wide\"</span></div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> <apple>&nbsp;&lt;/apple&gt;</apple> <br>&nbsp;<apple class =\"small\">&lt;/apple class = \"small\"&gt;<br></apple>&nbsp;<bento>&lt;bento&gt;<br><orange choosen = \"a\" class =\"small\">&nbsp;&nbsp;&lt;/orange class = \"small\"&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento>  <br> <plate>&nbsp;&lt;plate&gt;<br><orange>&nbsp;&nbsp;&lt;/orange&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<plate>&lt;plate&gt;<br><orange choosen = \"a\" class =\"small\">&nbsp;&nbsp;&lt;/orange class = \"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &lt;/div&gt;",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 8,
+            "tags" : [
+                ["bento", "orange-small", "bento", "bento", "bento"],
+                ["orange", "", "orange-small choosen ", "apple small", "orange-small choosen "]
+            ],
+            "select": "small oranges in the bentos",
+            "asideTitle" : "",
+            "asideSubTitle" : "You can do it...",
+            "asideSelector" : "Put your back into it!",
+            "asideText" : "Combine what you learned in the last few levels to solve this one!",
+            "asideExamples" : "",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<orange>&lt;/orange&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento><br>&nbsp;<orange class=\"small\">&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<orange class=\"small\" choosen=\"a\">&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/bento&gt;<br>&nbsp;</bento><bento>&lt;bento&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br>&nbsp;&lt;/bento&gt;<br></bento>&nbsp;<bento>&lt;bento&gt;<br><orange class=\"small\">&nbsp;&nbsp;&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento> <br> &lt;/div&gt;",
+            "answer" : 2,
+            "example" : false
+        },
+        {
+            "level" : 9,
+            "tags" : [
+                ["blueberry-small", "blueberry", "plate choosen ", "bento choosen ", "plate choosen ", "blueberry", "blueberry-small"],
+                ["", "", "blueberry-small choosen ", "blueberry choosen ", "blueberry-small choosen ", "" , ""]
+            ],
+            "select": "small oranges in the bentos",
+            "asideTitle" : "Comma Combinator",
+            "asideSubTitle" : "Combine, selectors, with... commas!",
+            "asideSelector" : "A, B",
+            "asideText" : "Thanks to Shatner technology, this selects all <span>A</span> and <span>B</span> elements. You can combine any selectors this way, and you can specify more than two.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>ul.important</span> selects all <span>&lt;p&gt;</span>  elements as well as all elements with  <span>class=\"fun\"</span></div> <hr size =\"1px\"><div class=\"level__info-example__item\"><span>a, p, div</span> selects all <span>&lt;p&gt;</span>, <span>&lt;a&gt;</span>, <span>&lt;div&gt;</span> elements</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<blueberry class =\"small\">&lt;/blueberry class=\"small\"&gt;</blueberry><br>&nbsp;<bluberry>&lt;/blueberry&gt;</bluberry><br>&nbsp;<plate choosen=\"a\">&lt;plate&gt;<br>&nbsp;&nbsp;<blueberry class=\"small\" choosen=\"a\">&lt;/blueberry class=\"small\"&gt;</blueberry><br>&nbsp;&lt;/plate&gt;<br></plate>&nbsp;<bento choosen =\"a\">&lt;bento&gt;<br>&nbsp;&nbsp;<blueberry choosen =\"a\">&lt;/blueberry&gt;</blueberry><br>&nbsp;&lt;/bento&gt;<br></bento>&nbsp;<plate choosen = \"a\">&lt;plate&gt;<br><blueberry class=\"small\" choosen=\"a\">&nbsp;&nbsp;&lt;/blueberry class=\"small\"&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate> <br> &lt;/div&gt;",
+            "answer" : 3,
+            "example" : true
+        },
+        {
+            "level" : 10,
+            "tags" : [
+                ["apple choosen ", "plate choosen ", "bento choosen ", "bento choosen ", "plate-fancy choosen  "],
+                ["", "orange-small choosen ", "", "orange choosen ", ""]
+            ],
+            "select": "all the plates and bentos",
+            "asideTitle" : "The Universal Selector",
+            "asideSubTitle" : "You can select everything!",
+            "asideSelector" : "*",
+            "asideText" : "You can select all elements with the universal selector!",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>p *</span> selects any element inside all <span>&lt;p&gt;</span>  elements.</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<apple choosen =\"a\">&lt;/apple&gt;</apple><br>&nbsp;<plate choosen=\"a\">&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\" choosen=\"a\">&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;<br></plate>&nbsp;<bento choosen =\"a\">&lt;bento&gt;</bento><br>&nbsp;<bento choosen = \"a\">&lt;bento&gt;<br><orange choosen=\"a\">&nbsp;&nbsp;&lt;/orange&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento> <br> &nbsp;<plate id=\"fancy\" choosen=\"a\">&lt;/plate id = \"fancy\"&gt;</plate><br>&lt;/div&gt;",
+            "answer" : 7,
+            "example" : true
+        },
+        {
+            "level" : 11,
+            "tags" : [
+                ["plate-fancy", "plate", "apple small", "plate"],
+                ["orange-small choosen ", "blueberry-small choosen ", "", "apple choosen "]
+            ],
+            "select": "everything on a plate",
+            "asideTitle" : "",
+            "asideSubTitle" : "Combine the Universal Selector",
+            "asideSelector" : "A  *",
+            "asideText" : "This selects all elements inside of <span>A</span>.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>p *</span> selects any element inside all <span>&lt;p&gt;</span>  elements. <hr size =\"1px\"><div class=\"level__info-example__item\"><span>ul.fancy *</span> selects every element inside all <span>&lt;ul class=\"fancy\"&gt;</span> elements</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<plate id = \"fancy\">&lt;plate id=\"fancy\"&gt;<br>&nbsp;&nbsp;<orange class=\"small\" choosen=\"a\">&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;<br></plate>&nbsp;<plate>&lt;plate&gt;<br><blueberry choosen=\"a\" class =\"small\">&nbsp;&nbsp;&lt;/blueberry class =\"small\"&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br> &nbsp;<plate>&lt;plate&gt;<br><apple choosen=\"a\">&nbsp;&nbsp;&lt;/apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br>&lt;/div&gt;",
+            "answer" : 3,
+            "example" : true
+        },
+        {
+            "level" : 12,
+            "tags" : [
+                ["bento", "plate", "apple small choosen ", "plate", "apple choosen ", "apple small", "apple small"],
+                ["apple small", "", "", "", "", "",""]
+            ],
+            "select": "every apple that's next to a plate",
+            "asideTitle" : "Adjacent Sibling Selector",
+            "asideSubTitle" : "Select an element that directly follows another element",
+            "asideSelector" : "A + B",
+            "asideText" : "This selects all <span>B</span> elements that directly follow <span>A</span>. Elements that follow one another are called siblings. They're on the same level, or depth. <br> <br> In the HTML markup for this level, elements that have the same indentation are siblings.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>p + .intro</span> selects every element with <span>class=\"intro\"</span>  that directly follows a <span>&lt;p&gt;</span>. <hr size =\"1px\"><div class=\"level__info-example__item\"><span>div + a</span> selects every <span>&lt;a&gt;</span> element that directly follows a <span>&lt;div&gt;</span> </div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br>&nbsp;&lt;/bento&gt;<br></bento>&nbsp;<plate>&lt;/plate&gt;</plate> <br> &nbsp;<apple class=\"small\" choosen=\"a\">&lt;/apple class=\"small\"&gt;</apple><br> &nbsp;<plate>&lt;/plate&gt;</plate><br>&nbsp;<apple choosen = \"a\">&lt;/apple&gt;</apple><br>&nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br>&nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br>&lt;/div&gt;",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 13,
+            "tags" : [
+                ["blueberry", "bento", "blueberry-small choosen ", "blueberry choosen ", "plate", "plate"],
+                ["", "orange-small", "", "", "blueberry", "blueberry-small"]
+            ],
+            "select": "the blueberries beside the bento",
+            "asideTitle" : "General Sibling Selector",
+            "asideSubTitle" : "Select elements that follows another element",
+            "asideSelector" : "A ~ B",
+            "asideText" : "You can select all siblings of an element that follow it. This is like the Adjacent Selector (A + B) except it gets all of the following elements instead of one.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>A ~ B</span> selects all <span>B</span>  that follow a <span>A</span>.</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<blueberry>&lt;/blueberry&gt;</blueberry> <br> &nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/bento&gt;<br></bento> &nbsp;<blueberry class=\"small\" choosen=\"a\">&lt;/blueberry class=\"small\"&gt;</blueberry><br> &nbsp;<blueberry choosen=\"a\">&lt;/blueberry&gt;</blueberry><br>&nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp&lt;/plate&gt;</plate><br>&nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<blueberry class=\"small\">&lt;blueberry class=\"small\"&gt;</blueberry><br>&nbsp&lt;/plate&gt;</plate><br>&lt;/div&gt;",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 14,
+            "tags" : [
+                ["plate", "plate", "plate", "apple", "apple small"],
+                ["bento", "apple choosen ", "", "", ""],
+                ["apple", "", "", "", ""]
+            ],
+            "select": "the apple directly on a plate",
+            "asideTitle" : "Child Selector",
+            "asideSubTitle" : "Select direct children of an element",
+            "asideSelector" : "A > B",
+            "asideText" : "You can select elements that are direct children of other elements. A child element is any element that is nested directly in another element.<br> Elements that are nested deeper than that are called descendant elements.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>A > B</span> selects all <span>B</span>  that are a direct children <span>A</span>.</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;&nbsp;<apple>&lt;/apple&gt;</apple><br>&nbsp;&nbsp;</bento>&lt;/bento&gt;<br>&nbsp;&lt;/plate&gt;<br></plate>&nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple choosen=\"a\">&lt;apple&gt;</apple><br>&nbsp&lt;/plate&gt;</plate><br>&nbsp;<plate>&lt;/plate&gt;</plate><br>&nbsp;<apple>&lt;/apple&gt;</apple><br>&nbsp;<apple class=\"small\">&lt;/apple class =\"small\"&gt;</apple><br>&lt;/div&gt;",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 15,
+            "tags" : [
+                ["bento", "plate", "plate", "blueberry-small"],
+                ["", "", "orange", "", ""],
+                ["", "", "orange", "", ""],
+                ["", "", "orange choosen ", "", ""]
+            ],
+            "select": "the top orange",
+            "asideTitle" : "First Child Pseudo-selector",
+            "asideSubTitle" : "Select a first child element inside of another element",
+            "asideSelector" : ":first-child",
+            "asideText" : "You can select the first child element. A child element is any element that is directly nested in another element. You can combine this pseudo-selector with other selectors.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>:first-child</span> selects all first child elements.</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<bento>&lt;/bento&gt;</bento><br></bento>&nbsp;<plate>&lt;/plate&gt;</plate><br>&nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange choosen=\"a\">&lt;/orange&gt;</orange><br>&nbsp;&nbsp;<orange>&lt;/orange&gt;</orange><br>&nbsp;&nbsp;<orange choosen=\"a\">&lt;/orange&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate><br>&nbsp;<blueberry class=\"small\">&lt;/blueberry class=\"small\"&gt;</blueberry><br>&lt;/div&gt;",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 16,
+            "tags" : [
+                ["plate", "plate", "bento", "plate", "blueberry-small"],
+                ["apple choosen ", "blueberry choosen ", "blueberry", "orange", ""],
+                ["", "", "", "orange-small", ""]
+            ],
+            "select": "the apple and the blueberry on the plates",
+            "asideTitle" : "Only Child Pseudo-selector",
+            "asideSubTitle" : "Select an element that are the only element inside of another one.",
+            "asideSelector" : ":only-child",
+            "asideText" : "You can select any element that is the only element inside of another one.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>span:only-child</span> selects the <span>&lt;span&gt;</span>  elements that are the only child of some other element..<hr size =\"1px\"><div class=\"level__info-example__item\"><span>ul li:only-child</span> selects the only  <span>&lt;li&gt;</span> element that are in a <span>&lt;ul&gt;</span></div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple choosen=\"a\">&lt;apple&gt;<br></apple>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<blueberry choosen=\"a\">&lt;blueberry&gt;<br></blueberry>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;<br></blueberry>&nbsp;&lt;/bento&gt;</bento><br>&nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;orange class=\"small\"&gt;<br></orange>&nbsp;&nbsp;<orange>&lt;orange&gt;<br></orange>&nbsp;&lt;/plate&gt;</plate><br>&nbsp;<blueberry class=\"small\">&lt;/blueberry class=\"small\"&gt;</blueberry> <br>&lt;/div&gt;",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 17,
+            "tags" : [
+                ["plate-fancy", "plate", "plate", "blueberry choosen "],
+                ["apple small choosen ", "", "orange", ""],
+                ["", "", "orange-small", ""]
+            ],
+            "select": "the small apple and the blueberry",
+            "asideTitle" : "Last Child Pseudo-selector",
+            "asideSubTitle" : "Select the last element inside of another element",
+            "asideSelector" : ":last-child",
+            "asideText" : "You can use this selector to select an element that is the last child element inside of another element. <br> <br> Pro Tip → In cases where there is only one element, that element counts as the first-child, only-child and last-child!",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>:last-child </span> selects all last-child elements.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>span:last-child</span> selects all last-child  <span>&lt;span&gt;</span> elements.</div>",
+            "HTMLeditor": "&lt;div class=\"table\"&gt; <br> &nbsp;<plate id=\"fancy\">&lt;plate id=\"fancy\"&gt;<br>&nbsp;&nbsp;<apple class=\"small\" choosen=\"a\">&lt;apple class=\"small\"&gt;<br></apple>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;/plate&gt;</plate><br>&nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;orange class=\"small\"&gt;<br></orange>&nbsp;&nbsp;<orange>&lt;orange&gt;<br></orange>&nbsp;&lt;/plate&gt;</plate><br>&nbsp;<blueberry choosen=\"a\">&lt;/blueberry&gt;</blueberry> <br>&lt;/div&gt;",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 18,
+            "tags" : [
+                ["plate", "plate", "plate  choosen ", "plate-fancy"]
+            ],
+            "select": "the 3rd plate",
+            "asideTitle" : "Nth Child Pseudo-selector",
+            "asideSubTitle" : "Select an element by its order in another element",
+            "asideSelector" : ":nth-child(A)",
+            "asideText" : "Selects the <span>nth</span> (Ex: 1st, 3rd, 12th etc.) child element in another element.!",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>:nth-child(8)</span> selects every element that is the 8th child of another element.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>div p:nth-child(2)</span> selects the second  <span>p</span> in every <span>div</span>.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<plate choosen=\"a\">&lt;/plate&gt;</plate><br> &nbsp;<plate id=\"fancy\">&lt;/plate id=\"fancy\"&gt;</plate> <br>&lt;/div&gt;</div>",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 19,
+            "tags" : [
+                ["plate", "bento choosen ", "plate", "bento"],
+                ["", "", "orange", ""],
+                ["", "", "orange", ""],
+                ["", "", "orange", ""]
+            ],
+            "select": "the 1st bento",
+            "asideTitle" : "Nth Last Child Selector",
+            "asideSubTitle" : "Select an element by its order in another element, counting from the back",
+            "asideSelector" : ":nth-last-child(A)",
+            "asideText" : "Selects the children from the bottom of the parent. This is like nth-child, but counting from the back",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>:nth-last-child(2)</span> selects all second-to-last child elements.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<bento choosen=\"a\">&lt;/bento&gt;</bento><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange>&lt;/orange&gt;</orange><br>&nbsp;&nbsp;<orange>&lt;/orange&gt;</orange><br>&nbsp;&nbsp;<orange>&lt;/orange&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<bento>&lt;/bento&gt;</bento><br> &lt;/div&gt;</div>",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 20,
+            "tags" : [
+                ["orange-small", "apple choosen ", "apple small", "apple", "apple small", "plate"],
+                ["", "", "", "","","orange"],
+                ["", "", "", "","","orange-small"]
+            ],
+            "select": "first apple",
+            "asideTitle" : "First of Type Selector",
+            "asideSubTitle" : "Select the first element of a specific type",
+            "asideSelector" : ":first-of-type",
+            "asideText" : "Selects the first element of that type within another element.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>span:first-of-type</span> selects the first <span>&lt;span&gt;</span> in any element.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<orange class=\"small\">&lt;/orange class=\"small\"&gt;</orange><br> &nbsp;<apple choosen=\"a\">&lt;/apple&gt;</apple><br> &nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br> &nbsp;<apple>&lt;/apple&gt;</apple><br>&nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;/orange class=\"small\"&gt;</orange><br>&nbsp;&nbsp;<orange>&lt;/orange&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate><br> &lt;/div&gt;</div>",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 21,
+            "tags" : [
+                ["plate", "plate choosen ", "plate", "plate choosen ", "plate-fancy", "plate choosen "]
+            ],
+            "select": "all even plates",
+            "asideTitle" : "Nth of Type Selector",
+            "asideSubTitle" : "",
+            "asideSelector" : ":nth-of-type(A)",
+            "asideText" : "Selects a specific element based on its type and order in another element - or even or odd instances of that element.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>div:nth-of-type(2)</span> selects the second instance of a div.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>.example:nth-of-type(odd)</span> selects all odd instances of a the example class.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<plate choosen=\"a\">&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<plate choosen=\"a\">&lt;/plate&gt;</plate><br> &nbsp;<plate id=\"fancy\">&lt;/plate id=\"fancy\"&gt;</plate><br> &nbsp;<plate choosen=\"a\">&lt;/plate&gt;</plate><br> &lt;/div&gt;</div>",
+            "answer" : 3,
+            "example" : true
+        },
+        {
+            "level" : 22,
+            "tags" : [
+                ["plate", "plate", "plate choosen ", "plate", "plate choosen ", "plate"],
+                ["", "blueberry", "apple small choosen ", "", "apple choosen ", ""]
+            ],
+            "select": "every 2nd plate, starting from the 3rd",
+            "asideTitle" : "Nth of Type Selector",
+            "asideSubTitle" : "Nth-of-type Selector with Formula",
+            "asideSelector" : ":nth-of-type(An+B)",
+            "asideText" : "The nth-of-type formula selects every nth element, starting the count at a specific instance of that element.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>span:nth-of-type(6n+2)</span> selects every 6th instance of a <span>&lt;span&gt;</span> , starting from (and including) the second instance.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate choosen=\"a\">&lt;plate&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple class=\"small\"&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &nbsp;<plate choosen=\"a\">&lt;plate&gt;<br>&nbsp;&nbsp;<apple>&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;/plate&gt;</plate><br> &lt;/div&gt;</div>",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 23,
+            "tags" : [
+                ["plate-fancy", "plate", "plate"],
+                ["apple", "apple small choosen ", "blueberry"],
+                ["apple small", "", ""]
+            ],
+            "select": "the apple on the middle plate",
+            "asideTitle" : "Only of Type Selector",
+            "asideSubTitle" : "Select elements that are the only ones of their type within of their parent element",
+            "asideSelector" : ":only-of-type",
+            "asideText" : "Selects the only element of its type within another element.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>p span:only-of-type</span> selects a <span>&lt;span&gt;</span> within any <span>&lt;p&gt;</span> if it is the only <span>&lt;span&gt;</span> in there.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple><br>&nbsp;&nbsp;<apple>&lt;/apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple class=\"small\" choosen=\"a\">&lt;apple class=\"small\"&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate><br> &lt;/div&gt;</div>",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 24,
+            "tags" : [
+                ["orange-small", "orange-small choosen ", "blueberry", "blueberry", "apple small", "apple small choosen"]
+            ],
+            "select": "the last apple and orange",
+            "asideTitle" : "Last of Type Selector",
+            "asideSubTitle" : "Select the last element of a specific type",
+            "asideSelector" : ":last-of-type",
+            "asideText" : "Selects each last element of that type within another element. Remember type refers the kind of tag, so <span>&lt;p&gt;</span> and <span>&lt;span&gt;</span> are different types.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>div:last-of-type</span> selects the last <span>&lt;div&gt;</span> in every element.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<orange class=\"small\">&lt;/orange class=\"small\"&gt;</orange> <br> &nbsp;<orange class=\"small\" choosen=\"a\">&lt;/orange class=\"small\"&gt;</orange> <br> &nbsp;<blueberry>&lt;/blueberry&gt;</blueberry> <br> &nbsp;<blueberry>&lt;/blueberry&gt;</blueberry> <br> &nbsp;<apple class=\"small\">&lt;/apple class=\"small\"&gt;</apple> <br> &nbsp;<apple class=\"small\" choosen=\"a\">&lt;/apple class=\"small\"&gt;</apple><br> &lt;/div&gt;</div>",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 25,
+            "tags" : [
+                ["bento choosen ", "bento", "plate", "bento choosen "],
+                ["", "blueberry-small", "", ""]
+            ],
+            "select": "the empty bentos",
+            "asideTitle" : "Empty Selector",
+            "asideSubTitle" : "Select elements that don't have children",
+            "asideSelector" : ":empty",
+            "asideText" : "Selects elements that don't have any other elements inside of them.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>div:empty</span> selects all empty <span>&lt;div&gt;</span> elements.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<bento choosen=\"a\"><span>&lt;/bento&gt;<span></bento> <br> &nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<blueberry class=\"small\">&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/bento&gt;</bento> <br> &nbsp;<plate>&lt;/plate&gt;</plate> <br> &nbsp;<bento choosen=\"a\"><span>&lt;/bento&gt;</span></bento><br> &lt;/div&gt;</div>",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 26,
+            "tags" : [
+                ["plate-fancy", "plate", "apple choosen ", "plate", "blueberry-small"],
+                ["apple small", "apple choosen ", "","orange-small", ""]
+            ],
+            "select": "the big apples",
+            "asideTitle" : "Negation Pseudo-class",
+            "asideSubTitle" : "Select all elements that don't match the negation selector",
+            "asideSelector" : ":not(X)",
+            "asideText" : "You can use this to select all elements that do not match selector <span>\"X\"</span>.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>:not(#fancy)</span> selects all elements that do not have <span>id=\"fancy\"</span>.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>div:not(:first-child)</span> selects every <span>&lt;div&gt;</span> that is not a first child.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>:not(.big, .medium)</span> selects all elements that do not have <span>class=\"big\"</span> or <span>class=\"medium\"</span></div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate id=\"fancy\">&lt;plate id=\"fancy\"&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple choosen=\"a\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<apple choosen=\"a\"><span>&lt;/apple&gt;<span></apple><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<blueberry class=\"small\"><span>&lt;/blueberry class=\"small\"&gt;<span></blueberry><br> &lt;/div&gt;</div>",
+            "answer" : 2,
+            "example" : true
+        }
+        ,
+        {
+            "level" : 27,
+            "tags" : [
+                ["bento", "apple choosen ", "plate choosen ", "bento choosen ", "blueberry"],
+                ["apple small", "", "blueberry","orange", ""],
+                ["for='Loshara'", "for='Ethan'", "for='Rodnoy'","for='Lohimnba'", "for='Doda'"]
+            ],
+            "select": "the big apples",
+            "asideTitle" : "Negation Pseudo-class",
+            "asideSubTitle" : "Select all elements that don't match the negation selector",
+            "asideSelector" : ":not(X)",
+            "asideText" : "You can use this to select all elements that do not match selector <span>\"X\"</span>.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>:not(#fancy)</span> selects all elements that do not have <span>id=\"fancy\"</span>.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>div:not(:first-child)</span> selects every <span>&lt;div&gt;</span> that is not a first child.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>:not(.big, .medium)</span> selects all elements that do not have <span>class=\"big\"</span> or <span>class=\"medium\"</span></div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate id=\"fancy\">&lt;plate id=\"fancy\"&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple choosen=\"a\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<apple choosen=\"a\"><span>&lt;/apple&gt;<span></apple><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<blueberry class=\"small\"><span>&lt;/blueberry class=\"small\"&gt;<span></blueberry><br> &lt;/div&gt;</div>",
+            "answer" : 2,
+            "example" : true
         }
     ]
 }

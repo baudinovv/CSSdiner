@@ -236,7 +236,7 @@ main{
             width: 100%;
             padding: 10px 15px;
         }
-        &__text *:hover{
+        &__text div > *:hover{
             color: rgb(217, 217, 217);
             cursor: pointer;
         }
