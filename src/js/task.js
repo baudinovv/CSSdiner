@@ -68,7 +68,7 @@ const levelUpdate = (levelCounter) => {
     
     let prevNode = table;
     
-    levelTitle.innerHTML = `Level ${levelCounter} of 32`;
+    levelTitle.innerHTML = `Level ${levelCounter} of ${levelsObject.levels.length}`;
     levelTitle.setAttribute('level', `${levelCounter}`);
     taskTitle.innerHTML = `Select ${currentLevel.select}`;
     htmlEditor.innerHTML = currentLevel.HTMLeditor;
@@ -93,10 +93,11 @@ const levelUpdate = (levelCounter) => {
 
             const nodeIn = document.createElement('div');
             const nodeTags = currentLevel.tags;           
-            if(j > 1) 
+            if(j > 1){
                 nodeIn.style.top = `${-j + 6}0px`;
+                nodeIn.style.zIndex = `${j}`;
+            }
             if(j == 0){
-                pastNodeIn = nodeIn;
                 if(nodeTags[j][i].includes('choosen')) nodeIn.style.animation = "anti-chooseme 1s linear infinite";
                 if(nodeTags[0][i].includes("bento") || nodeTags[0][i].includes("plate") || nodeTags[0][i].includes("plate-fancy")){
                     nodeIn.classList = currentLevel.tags[j][i];
@@ -104,40 +105,38 @@ const levelUpdate = (levelCounter) => {
                     surface = nodeIn;
                     modalReduce(nodeIn, 3);
                     nodeIn.style.zIndex = "2";
-                    // if(nodeTags[0][i].includes('for=')){
-                    //     const nodeFor = document.createElement('div');
-                    //     nodeFor.classList = "task__picture-tablemodals__for";
-                    //     nodeFor.style.left = `${nodeIn.getBoundingClientRect().x - nodeIn.offsetWidth*1/2}px`
-                    //     tableLow.append(nodeFor);
-                    //     console.log(nodeIn.getBoundingClientRect().x)
-                    // }
+                    nodeIn.style.top = "0";
+                    pastNodeIn = nodeIn;  
                     continue;
                 }
-                if(nodeTags[j][i].includes('apple')) nodeIn.style.position = "relative";
+                if(nodeTags[j][i].includes('apple') || nodeTags[j][i].includes('blueberry')) nodeIn.style.position = "relative";
+                if(nodeTags[j][i].includes('for')){
+                    const nodeFor = document.createElement('div');
+                    nodeFor.style = "position: relative; outline: none; z-index: -1";
+                    nodeIn.classList = "task__picture-for";
+                    nodeIn.style = "outline: none; top: 95px; width: 70px; height: 70px;";
+                    nodeIn.textContent = `${nodeTags[j][i].slice(nodeTags[j][i].indexOf(`'`) + 1, nodeTags[j][i].length - 1)}`;
+                    nodeIn.style.transformOrigin = "center";
+                    nodeFor.append(nodeIn);
+                    table.append(nodeFor);
+                    surface = nodeIn;
+                    continue;
+                }
+                pastNodeIn = nodeIn;  
             }
-            if(currentLevel.tags[j][i].includes('bento')){
-                nodeIn.style.width = "65px";
-                nodeIn.style.height = "65px";
+            if(nodeTags[0][i].includes('for')){
+                nodeIn.style.top = "-10px";
+            }
+            if(nodeTags[j][i].includes('bento')){
+                nodeIn.style.width = "80px";
+                nodeIn.style.height = "80px";
                 nodeIn.style.position = "absolute";
                 modalReduce(nodeIn , 2)
-                nodeIn.classList = currentLevel.tags[j][i];   
+                nodeIn.classList = nodeTags[j][i]; 
                 surface.append(nodeIn);
                 continue;
             }
-            if(nodeTags[j][i].includes('for')){
-                nodeIn.classList = "task__picture-for";
-                nodeIn.style.outline = "none";
-                nodeIn.style.top = "50px";
-                nodeIn.style.width = "60px";
-                nodeIn.style.left = `${(table.getBoundingClientRect().left) }px`;
-                nodeIn.textContent = `${nodeTags[j][i].slice(nodeTags[j][i].indexOf(`'`) + 1, nodeTags[j][i].length - 1)}`;
-                nodeIn.style.transformOrigin = "right";
-                nodeIn.style.transform = "rotate(10deg)";
-                table.append(nodeIn);
-                console.log(pastNodeIn.getBoundingClientRect().x)
-                continue;
-            }
-            (nodeTags[j][i].includes('small')) ? modalReduce(nodeIn , 0.5) : modalReduce(nodeIn , 1);
+            (nodeTags[j][i].includes('small')) ? modalReduce(nodeIn , 0.5) : (nodeTags[j][i].includes('plate') ? modalReduce(nodeIn , 3) : modalReduce(nodeIn , 1));
             nodeIn.classList = nodeTags[j][i];   
             surface.append(nodeIn);
         } 

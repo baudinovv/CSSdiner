@@ -418,22 +418,72 @@
             "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate id=\"fancy\">&lt;plate id=\"fancy\"&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple choosen=\"a\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<apple choosen=\"a\"><span>&lt;/apple&gt;<span></apple><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<blueberry class=\"small\"><span>&lt;/blueberry class=\"small\"&gt;<span></blueberry><br> &lt;/div&gt;</div>",
             "answer" : 2,
             "example" : true
-        }
-        ,
+        },
         {
             "level" : 27,
             "tags" : [
-                ["bento", "apple choosen ", "plate choosen ", "bento choosen ", "blueberry"],
-                ["apple small", "", "blueberry","orange", ""],
-                ["for='Loshara'", "for='Ethan'", "for='Rodnoy'","for='Lohimnba'", "for='Doda'"]
+                ["bento", "for='Ethan'", "for='Alice'", "for='Clara'", "blueberry"],
+                ["apple small", "apple choosen ", "plate choosen", "bento choosen ", ""],
+                ["", "", "blueberry choosen " , "orange choosen ", ""]
             ],
-            "select": "the big apples",
-            "asideTitle" : "Negation Pseudo-class",
-            "asideSubTitle" : "Select all elements that don't match the negation selector",
-            "asideSelector" : ":not(X)",
-            "asideText" : "You can use this to select all elements that do not match selector <span>\"X\"</span>.",
-            "asideExamples" : "<div class=\"level__info-example__item\"><span>:not(#fancy)</span> selects all elements that do not have <span>id=\"fancy\"</span>.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>div:not(:first-child)</span> selects every <span>&lt;div&gt;</span> that is not a first child.<hr size =\"1px\"><div class=\"level__info-example__item\"><span>:not(.big, .medium)</span> selects all elements that do not have <span>class=\"big\"</span> or <span>class=\"medium\"</span></div>",
-            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate id=\"fancy\">&lt;plate id=\"fancy\"&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<apple choosen=\"a\">&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<apple choosen=\"a\"><span>&lt;/apple&gt;<span></apple><br> &nbsp;<plate>&lt;plate&gt;<br>&nbsp;&nbsp;<orange class=\"small\">&lt;orange class=\"small\"&gt;</orange><br>&nbsp;&lt;/plate&gt;</plate> <br> &nbsp;<blueberry class=\"small\"><span>&lt;/blueberry class=\"small\"&gt;<span></blueberry><br> &lt;/div&gt;</div>",
+            "select": "the items for someone",
+            "asideTitle" : "Attribute Selector",
+            "asideSubTitle" : "Select all elements that have a specific attribute",
+            "asideSelector" : "[attribute]",
+            "asideText" : "Attributes appear inside the opening tag of an element, like this: <span>&lt;span attribute=\"value\"&gt;</span>. An attribute does not always have a value, it can be blank!",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>a[href]</span> selects all <span>&lt;a&gt;</span> elements that have a <span>href=\"anything\"</span> attribute. <hr size =\"1px\"><div class=\"level__info-example__item\"><span>[type]</span> selects all elements that have a <span>type=\"anything\"</span>. attribute.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<bento>&lt;bento&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple class=\"small\"&gt;</apple><br>&nbsp;&lt;/bento&gt;</bento> <br> &nbsp;<apple choosen=\"a\" for=\"Ethan\">&lt;/apple for=\"Ethan\"&gt;</apple><br> &nbsp;<plate for=\"Alice\" choosen=\"a\">&lt;plate for=\"Alice\"&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<bento for=\"Clara\" choosen=\"a\">&lt;bento for=\"Clara\"&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/bento&gt;</bento> <br> &nbsp;<blueberry><span>&lt;/blueberry&gt;<span></blueberry><br> &lt;/div&gt;</div>",
+            "answer" : 3,
+            "example" : true
+        },
+        {
+            "level" : 28,
+            "tags" : [
+                ["for='Sarah'", "for='Luke'", "plate", "for='Steve'"],
+                ["plate choosen ", "plate choosen ", "", "bento"],
+                ["blueberry choosen ", "apple choosen ", "" , "orange"]
+            ],
+            "select": "the plates for someone",
+            "asideTitle" : "Attribute Selector",
+            "asideSubTitle" : "Select all elements that have a specific attribute",
+            "asideSelector" : "A[attribute]",
+            "asideText" : "Combine the attribute selector with another selector (like the tag name selector) by adding it to the end.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>a[href]</span> selects all <span>&lt;a&gt;</span> elements that have a <span>href=\"anything\"</span> attribute. <hr size =\"1px\"><div class=\"level__info-example__item\"><span>[type]</span> selects all elements that have a <span>type=\"anything\"</span>. attribute.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate for=\"Sarah\" choosen=\"a\">&lt;plate for=\"Sarah\"&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate for=\"Alice\" choosen=\"a\">&lt;plate for=\"Luke\"&gt;<br>&nbsp;&nbsp;<apple>&lt;apple&gt;</apple><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<plate><span>&lt;/plate&gt;<span></apple></plate><br> &nbsp;<bento for=\"Steve\">&lt;bento for=\"Steve\"&gt;<br>&nbsp;&nbsp;<orange>&lt;orange&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento><br> &lt;/div&gt;</div>",
+            "answer" : 2,
+            "example" : true
+        },
+        {
+            "level" : 29,
+            "tags" : [
+                ["for='Alexei'", "for='Albina'", "for='Vitaly'", "blueberry"],
+                ["apple", "bento", "bento choosen ", ""],
+                ["", "apple", "orange choosen " , ""]
+            ],
+            "select": "Vitaly's meal",
+            "asideTitle" : "Attribute Selector",
+            "asideSubTitle" : "Select all elements that have a specific attribute value",
+            "asideSelector" : "[attribute=\"value\"]",
+            "asideText" : "Attribute selectors are case sensitive, each character must match exactly.",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>input[type=\"checkbox\"]</span> selects all checkbox input elements.</div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<apple for=\"Alexei\">&lt;/apple for=\"Alexei\"&gt;</apple> <br> &nbsp;<bento for=\"Albina\">&lt;bento for=\"Albina\"&gt;<br>&nbsp;&nbsp;<apple>&lt;apple&gt;</apple><br>&nbsp;&lt;/bento&gt;</bento><br> &nbsp;<bento for=\"Vitaly\" choosen=\"a\">&lt;bento for=\"Vitaly\"&gt;<br>&nbsp;&nbsp;<orange>&lt;orange&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento><br> &nbsp;<blueberry>&lt;/blueberry&gt;</blueberry><br> &lt;/div&gt;</div>",
+            "answer" : 1,
+            "example" : true
+        },
+        {
+            "level" : 30,
+            "tags" : [
+                ["for='Sam'", "for='Sarah'", "for='Mary'"],
+                ["plate choosen ", "bento choosen ", "bento"],
+                ["blueberry choosen ", "apple small choosen ", "orange"]
+            ],
+            "select": "the items for names that start with 'Sa'",
+            "asideTitle" : "Attribute Starts With Selector",
+            "asideSubTitle" : "Select all elements that have a specific attribute value",
+            "asideSelector" : "[attribute^=\"value\"]",
+            "asideText" : "Select all elements with an attribute value that starts with specific characters",
+            "asideExamples" : "<div class=\"level__info-example__item\"><span>.toy[category^=\"Swim\"]</span> selects elements with class <span>toy</span> and either <span>category=\"Swimwear\"</span> or <span>category=\"Swimming\".</span></div>",
+            "HTMLeditor": "<div class=\"table\">&lt;div class=\"table\"&gt; <br> &nbsp;<plate for=\"Sam\" choosen=\"a\">&lt;plate for=\"Sam\"&gt;<br>&nbsp;&nbsp;<blueberry>&lt;blueberry&gt;</blueberry><br>&nbsp;&lt;/plate&gt;</plate><br> &nbsp;<bento for=\"Sarah\" choosen=\"a\">&lt;bento for=\"Sarah\"&gt;<br>&nbsp;&nbsp;<apple class=\"small\">&lt;apple class=\"small\"&gt;</apple><br>&nbsp;&lt;/bento&gt;</bento><br>&nbsp;<bento for=\"Mary\">&lt;bento for=\"Mary\"&gt;<br>&nbsp;&nbsp;<orange>&lt;orange&gt;</orange><br>&nbsp;&lt;/bento&gt;</bento><br> &lt;/div&gt;</div>",
             "answer" : 2,
             "example" : true
         }
