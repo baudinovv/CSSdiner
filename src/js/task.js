@@ -23,6 +23,14 @@ let input = document.querySelector('.dev__css-editor__input-1');
 
 let levelCounter = (localStorage.getItem('lastLevelUser')) ? localStorage.getItem('lastLevelUser') : 1;
 
+let observer = new MutationObserver(MutationRecord => {
+    levelCounter = levelTitle.getAttribute('level');
+});
+
+observer.observe(levelTitle, {
+    attributes: true
+});
+
 arrowL.addEventListener( "click" , () => {
     levelCounter--;
     if (levelCounter < 1) levelCounter = 1;

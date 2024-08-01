@@ -26,8 +26,6 @@ const answerReduce = (answer) => {
     try {
         let currentLevel = levelsObject.levels[levelCounter - 1];
         let array = Array.from(htmlEditorClone.querySelectorAll(`${answer}`));
-        console.log(Array.from(htmlEditorClone.querySelectorAll(`${answer}`)));
-        console.log(htmlEditorClone);
         return (answer) ? (array
             .map((value) => value.hasAttribute('choosen')).filter(Boolean).length == currentLevel.answer 
             && !array
