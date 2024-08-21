@@ -1,25 +1,14 @@
 # CSS diner
 
-> A Vue.js project for music
-### Use
-* vuejs-2.0
-* vue-cli
-* vue-router
-* vuex
-* mint-ui
-
+> A fun CSS selectors game
+### Technologies
+* SCSS
+* Vite
+* HTML5
+* JavaScript
 
 ## Support
-* Chrome
-* Firefox
-* Mobile browser
-
-## Package for app
-* Appcan
-* Apicloud
-
-## Other link
-- vue-music-qq : https://github.com/pluto1114/vue-music-qq
+* Only Dekstop version 
 
 ## Build Setup
 
@@ -36,20 +25,10 @@ npm run build
 
 ## Demo site
 
-# http://weixin.nmict.cn/vue-music163/
-
-
-
-## Screenshots
-![image](https://github.com/pluto1114/vue-music163/blob/master/screenshots/music163-01.png)
-
-![image](https://github.com/pluto1114/vue-music163/blob/master/screenshots/music163-02.png)
-
-![image](https://github.com/pluto1114/vue-music163/blob/master/screenshots/music163-03.png)
+# https://baudinovv.github.io/CSSdiner/
 
 # Conatct
 
-- Tencent QQ: 342878509
-- E-mail: xiongmao1114@163.com
-- Git@OSC: http://git.oschina.net/xiongmao1114/vue-music163
-- Github: https://github.com/pluto1114/vue-music163
+- E-mail: alisher.baudinovv@gmail.com
+- Telegram: https://t.me/baudinovv
+- Github: https://github.com/baudinovv
