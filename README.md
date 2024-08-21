@@ -15,6 +15,8 @@
 
 ## Build Setup
 
+Make sure that [pnpm](https://pnpm.io/) package is installed
+
 ``` bash
 # install dependencies
 npm install
