@@ -19,13 +19,13 @@ Make sure that [pnpm](https://pnpm.io/) package is installed.
 
 ``` bash
 # install dependencies
-npm install
+pnpm i
 
 # serve with hot reload at localhost:8080
-npm run dev
+pnpm dev
 
 # build for production with minification
-npm run build
+pnpm build
 ```
 
 ## Demo site
@@ -34,7 +34,7 @@ npm run build
 
 # Conatct
 
-- [![GMAIL](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](alisher.baudinovv@gmail.com)
-- [![TELEGRAM](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/baudinovv)
-- [![CODEWARS](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/baudinovv)
-- [![CODEWARS](https://img.shields.io/badge/Codewars-B1361E?style=for-the-badge&logo=Codewars&logoColor=white)](https://www.codewars.com/users/baudinovv)
+[![GMAIL](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](alisher.baudinovv@gmail.com)
+[![TELEGRAM](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/baudinovv)
+[![CODEWARS](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/baudinovv)
+[![CODEWARS](https://img.shields.io/badge/Codewars-B1361E?style=for-the-badge&logo=Codewars&logoColor=white)](https://www.codewars.com/users/baudinovv)
