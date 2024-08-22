@@ -1,0 +1,180 @@
+.level{
+    max-width: 22%;
+    min-width: 340px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(25, 25, 25);
+    right: 0px;
+    &__menu{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        #checkbox{
+            transition: all 0.3s ease;
+        }
+    }
+    &__content{
+        margin: 25px 0px 25px 20px;
+        width: 100%;
+        max-width: 90%;
+    }
+    &__title{
+        display: flex;
+        gap: 10px;
+        &-text{
+            font-size: 30px;
+            line-height: 28px;
+        }
+        &-icon{
+            display: flex;
+            align-items: center;
+        }
+    }
+    &__manage{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        &-arrows{
+            &-1,
+            &-2{
+                display: inline-block;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            &-1 div{
+                width: 16px;
+                height: 16px;
+                border-top: 2px solid rgb(103, 103, 103);
+                border-right: 2px solid rgb(103, 103, 103);
+                transform: rotate(-135deg);
+                top: 5px;
+                left: 0;
+                background-color: transparent;
+            }
+            &-2 div{
+                width: 16px;
+                height: 16px;
+                border-top: 2px solid rgb(103, 103, 103);
+                border-right: 2px solid rgb(103, 103, 103);
+                transform: rotate(45deg);
+                top: 5px;
+                left: 10px;
+                background-color: transparent;
+            }
+        }
+        &-burger__menu {
+            display: inline-block;
+            width: 26px;
+            height: 30px;
+            background-color: transparent;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            z-index: 30;
+        }
+        &-burger__menu .a{
+            transition: all 0.5s ease;
+            border-top: 2px solid rgb(103, 103, 103);
+            margin-top: 50%;
+        }
+        &-burger__menu .a1{
+            position: absolute;
+            width: 26px;
+            height: 2px;
+            background-color: rgb(103, 103, 103);
+            top: 24px;
+            opacity: 1;
+            transition: all 0.5s ease;
+        }
+        &-burger__menu .a2{
+            position: absolute;
+            width: 26px;
+            height: 2px;
+            background-color: rgb(103, 103, 103);
+            bottom: 24px;
+            transition: all 0.5s ease;
+        }
+    }
+    position: relative;
+    &__burger{
+        position: absolute;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        background-color: rgb(25, 25, 25);
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        right: -100%;
+        transition: all 0.3s ease;
+        &-content{
+            margin: 25px 0px 25px 20px;
+        }
+        &-title{
+            font-size: 30px;
+            line-height: 28px;
+            margin-bottom: 10px;
+        }
+        &-box__item{
+            display: flex;
+            width: 100%;
+            cursor: pointer;
+            padding: 5px 0;
+            padding-left: 25px;
+            align-items: center;
+            &:hover{
+                background-color: rgb(38, 38, 38);
+            }
+            & span{
+                color: rgb(86, 86, 86);
+                font-weight: bold;
+            }
+            & img{
+                margin-right: 5px;
+                width: 20px;
+            }
+        }
+    }
+    &__info{
+        &-title{
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        &-subtitle{
+            color: rgb(103, 103, 103);
+            margin-top: 5px;
+        }
+        &-selector{
+            font-size: 28px;
+            background-color: rgb(36, 36, 36);
+            width: fit-content;
+            padding: 5px;
+            border-bottom: 2px solid rgb(65, 65, 65);
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        &-text,
+        .level__info-example__item{
+            line-height: 23px;
+        }
+        &-text span,
+        .level__info-example__item span{
+            background-color: rgb(65, 65, 65);
+            padding: 3px;
+            margin: 1px;
+            font-size: 13px;
+        }
+        &-example{
+            margin-top: 50px;
+            &__title{
+                font-size: 22px;
+            }
+            &__rows{
+                margin-top: 20px;
+            }
+            &__rows hr{
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
